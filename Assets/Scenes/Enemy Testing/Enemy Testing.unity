@@ -5902,21 +5902,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2089062772}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &556208398538354693
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5566521841058613728}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.07000005, z: 0.504}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7510714241224799646}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &898928813356388041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5959,22 +5944,6 @@ MonoBehaviour:
   ChoseTopPath1: 0
   ChoseTopPath2: 0
   UpgradePickerMenu: {fileID: 709050875}
---- !u!1 &1370638057619733100
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2445346482685666528}
-  m_Layer: 7
-  m_Name: bite projeciton spot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &2394726240959424511
 GameObject:
   m_ObjectHideFlags: 0
@@ -5985,27 +5954,12 @@ GameObject:
   m_Component:
   - component: {fileID: 3533520692128535396}
   m_Layer: 7
-  m_Name: bite spot
+  m_Name: shot spot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2445346482685666528
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370638057619733100}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4.61}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7510714241224799646}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &2484369903015508934
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6038,7 +5992,7 @@ Transform:
   m_GameObject: {fileID: 2394726240959424511}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.67}
+  m_LocalPosition: {x: 0, y: 0, z: 0.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6062,6 +6016,7 @@ GameObject:
   - component: {fileID: 9076938849880580016}
   - component: {fileID: 9076938849880580017}
   - component: {fileID: 4423731695617093026}
+  - component: {fileID: 9076938849880580018}
   m_Layer: 7
   m_Name: Char 6
   m_TagString: Player
@@ -6201,22 +6156,6 @@ MonoBehaviour:
   Acceleration: 100
   RotateSpeed: 15
   CanMove: 1
---- !u!1 &5566521841058613728
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 556208398538354693}
-  m_Layer: 7
-  m_Name: Fire Spot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!33 &6765018454864189212
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6266,8 +6205,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3533520692128535396}
-  - {fileID: 2445346482685666528}
-  - {fileID: 556208398538354693}
   - {fileID: 8453307608011170493}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6384,6 +6321,34 @@ MonoBehaviour:
   DamageMult: 1
   DamageNumber: {fileID: 73231673538876452, guid: b9f5d761880ef65499f5dfa1eaaa1668, type: 3}
   DamageNumberSpot: {fileID: 8453307608011170493}
+--- !u!114 &9076938849880580018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4197428319953940745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9035cd0f38ee1ca43b456bce4e9d30f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttacksChar6
+  ShotSpot: {fileID: 3533520692128535396}
+  Bullet: {fileID: 3360668727301058841, guid: 72c96b7bd57e41d4191c1cc33de49f3b, type: 3}
+  MainAttackDownTime: 0.5
+  BaseCritChance: 0.1
+  BaseCritDamageMult: 1.4
+  MainUpgrade3AddedCritChance: 0
+  MainUpgrade1DamageIncrease: 3
+  MainUpgrade1CritRateIncrease: 0.2
+  MainUpgrade2CritDamageMultIncrease: 0.4
+  MainUpgrade3DamageIncrease: 3
+  MainUpgrade3CritChanceAdded: 0.03
+  SlotSpot: {fileID: 0}
+  Slots: {fileID: 0}
+  CoinSplosions: []
+  Chips: {fileID: 0}
+  SecondaryAttackDownTime: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

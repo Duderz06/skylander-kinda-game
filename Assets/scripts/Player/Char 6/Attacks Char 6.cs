@@ -8,6 +8,7 @@ public class AttacksChar6 : AttackParent
 
     private UpgradeHandler Upgrades;
     private AttackHandler AH;
+    private PlayerHealthHandler PHH;
 
     [Header("Main Attack stuff")]
 
@@ -22,7 +23,7 @@ public class AttacksChar6 : AttackParent
     [Header("Main Attack Upgrade Changes")]
 
     public float MainUpgrade1DamageIncrease = 3f;
-    public float MainUpgrade1CritDamageMultIncrease = 0.2f;
+    public float MainUpgrade1CritRateIncrease = 0.2f;
     public float MainUpgrade2CritDamageMultIncrease = 0.4f;
     public float MainUpgrade3DamageIncrease = 3f;
     public float MainUpgrade3CritChanceAdded = 0.03f;
@@ -47,6 +48,7 @@ public class AttacksChar6 : AttackParent
     {
         Upgrades = GetComponent<UpgradeHandler>();
         AH = GetComponent<AttackHandler>();
+        PHH = GetComponent<PlayerHealthHandler>();
 
     }
 
@@ -68,7 +70,73 @@ public class AttacksChar6 : AttackParent
 
     public override void MainAttack() {
 
-       
+
+        GameObject bullet = Instantiate(Bullet, ShotSpot.position, ShotSpot.rotation);
+
+
+
+        Bullet bullethitbox = bullet.GetComponent<Bullet>();
+
+        float damage = bullethitbox.Damage;
+        float critmult = BaseCritDamageMult;
+        float critchance = BaseCritChance;
+
+        if (Upgrades.MainUpgrade1)
+        {
+
+            damage += MainUpgrade1DamageIncrease;
+
+            critchance += MainUpgrade1CritRateIncrease;
+
+
+        }
+
+        if (Upgrades.MainUpgrade2)
+        {
+
+            critmult += MainUpgrade2CritDamageMultIncrease;
+
+        }
+
+
+        if (Upgrades.MainUpgrade3) {
+
+            critchance += MainUpgrade3AddedCritChance;
+
+
+
+        }
+
+        if (Upgrades.Passive) {
+
+
+            critchance += (1 - (PHH.Hp / PHH.MaxHp)) / 2;
+        
+        
+        }
+
+        Debug.Log(critchance);
+
+        float Crit = Random.Range(0f, 100f);
+        Crit /= 100f;
+
+        if (Crit <= critchance) {
+
+
+            bullethitbox.IsCrit = true;
+
+            damage *= critmult;
+
+        }
+
+
+        bullethitbox.Damage = damage;
+
+
+        StartCoroutine(DownTimeWaiter(MainAttackDownTime));
+
+
+
     }
 
 
@@ -76,7 +144,7 @@ public class AttacksChar6 : AttackParent
     public override void SecondaryAttack()
     {
 
-       
+
     }
 
 

@@ -21,7 +21,7 @@ public class Hitbox : MonoBehaviour
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void Start()
     {
 
         StartCoroutine(DestoryAfterTime());
@@ -47,7 +47,7 @@ public class Hitbox : MonoBehaviour
 
     }
 
-    public void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerEnter(Collider other)
     {
 
         if (other.CompareTag("Enemy")) {
