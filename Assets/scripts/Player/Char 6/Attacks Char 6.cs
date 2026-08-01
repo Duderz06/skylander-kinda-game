@@ -27,7 +27,8 @@ public class AttacksChar6 : AttackParent
     public float MainUpgrade2CritDamageMultIncrease = 0.4f;
     public float MainUpgrade3DamageIncrease = 3f;
     public float MainUpgrade3CritChanceAdded = 0.03f;
-    
+
+    public float AddedCritChanceFromSecond = 0f;
 
     [Header("Secondary Attack stuff")]
     public Transform SlotSpot;
@@ -115,6 +116,8 @@ public class AttacksChar6 : AttackParent
         
         }
 
+        critchance += AddedCritChanceFromSecond;
+
         Debug.Log(critchance);
 
         float Crit = Random.Range(0f, 100f);
@@ -132,6 +135,7 @@ public class AttacksChar6 : AttackParent
 
         bullethitbox.Damage = damage;
 
+        AddedCritChanceFromSecond = 0f;
 
         StartCoroutine(DownTimeWaiter(MainAttackDownTime));
 
@@ -144,6 +148,33 @@ public class AttacksChar6 : AttackParent
     public override void SecondaryAttack()
     {
 
+        GameObject slot = Instantiate(Slots, SlotSpot.position, SlotSpot.rotation);
+
+        slot.transform.parent = SlotSpot;
+
+        SlotsHandler SH = slot.GetComponent<SlotsHandler>();
+
+        int option = 0;
+
+        if (Upgrades.SecondaryUpgrade3)
+        {
+
+            option = Random.Range(0, 4);
+            option++;
+
+        }
+
+        else {
+
+            option = Random.Range(0, 5);
+
+
+        }
+
+
+        SH.StartSpinning(option);
+
+        StartCoroutine(DownTimeWaiter(SecondaryAttackDownTime));
 
     }
 
