@@ -342,3 +342,8 @@ MonoBehaviour:
   Slot3Rend: {fileID: 3681538076814299713}
   SpinTime: 0.3
   WaitBetweenTime: 0.2
+  Chip: {fileID: 7024166152178306233, guid: fb11e27cf83a65347bf7a6623fcd6c43, type: 3}
+  ChipsToSpawn: 0100000002000000030000000400000005000000
+  MaxChipAngle: 45
+  MaxChipForce: 5
+  MinChipForce: 7

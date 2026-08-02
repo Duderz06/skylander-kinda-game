@@ -23,7 +23,15 @@ public class SlotsHandler : MonoBehaviour
     public float WaitBetweenTime = 0.2f;
 
     private UpgradeHandler Upgrades;
+
+    public GameObject Chip;
+    public List<int> ChipsToSpawn = new List<int>();
+    public float MaxChipAngle = 7f;
+    public float MaxChipForce = 1f;
+    public float MinChipForce = 3f;
+
     
+
 
     void Start()
     {
@@ -71,6 +79,33 @@ public class SlotsHandler : MonoBehaviour
             Instantiate(Coinsplostion[ChosenOption], transform.position, transform.rotation);
         
         }
+
+
+        if (Upgrades.SecondaryUpgrade2)
+        {
+            for (int i = 0; i < ChipsToSpawn[ChosenOption]; i++)
+            {
+
+
+                GameObject chip = Instantiate(Chip, transform.position, Quaternion.identity);
+
+                Rigidbody ChipRb = chip.GetComponent<Rigidbody>();
+
+                float Angle = Mathf.Acos(Random.Range(Mathf.Cos(MaxChipAngle * Mathf.Deg2Rad), 1f));
+                float azimuth = Random.Range(0f, Mathf.PI * 2f);
+
+                Vector3 direction = new Vector3(Mathf.Sin(Angle) * Mathf.Cos(azimuth), Mathf.Cos(Angle), Mathf.Sin(Angle) * Mathf.Sin(azimuth));
+
+                float RandForce = Random.Range(MinChipForce, MaxChipForce);
+
+                ChipRb.AddForce(direction * RandForce, ForceMode.Impulse);
+
+                yield return null;
+            }
+
+
+        }
+
 
         Destroy(gameObject);
 

@@ -33,8 +33,6 @@ public class AttacksChar6 : AttackParent
     [Header("Secondary Attack stuff")]
     public Transform SlotSpot;
     public GameObject Slots;
-    public List<GameObject> CoinSplosions = new List<GameObject>();
-    public GameObject Chips;
     public float SecondaryAttackDownTime = 1f;
 
     //[Header("Secondary Attack Upgrade Changes")]
@@ -174,7 +172,7 @@ public class AttacksChar6 : AttackParent
 
         SH.StartSpinning(option);
 
-        StartCoroutine(DownTimeWaiter(SecondaryAttackDownTime));
+        StartCoroutine(SecondaryWaiter(SecondaryAttackDownTime));
 
     }
 
@@ -192,7 +190,18 @@ public class AttacksChar6 : AttackParent
     
     }
 
+    public IEnumerator SecondaryWaiter(float Time)
+    {
 
+        AH.CanSecondary = false;
+
+        yield return new WaitForSeconds(Time);
+
+        AH.CanSecondary = true;
+
+
+
+    }
 
 
 

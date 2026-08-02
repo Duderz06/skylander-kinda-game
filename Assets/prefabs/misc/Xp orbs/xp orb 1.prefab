@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2838079483257100959}
   - component: {fileID: 7125174545900701828}
   - component: {fileID: 2004540831928903491}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: xp orb 1
   m_TagString: XP Orb
   m_Icon: {fileID: 0}

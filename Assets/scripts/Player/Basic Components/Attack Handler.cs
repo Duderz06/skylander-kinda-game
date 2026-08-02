@@ -8,6 +8,8 @@ public class AttackHandler : MonoBehaviour
     private bool BufferedSecondary = false;
 
     public bool CanAttack = true;
+    public bool CanMain=true;
+    public bool CanSecondary=true;
 
     private AttackParent AttackScript;
     private UpgradeHandler UH;
@@ -26,14 +28,14 @@ public class AttackHandler : MonoBehaviour
     {
 
         //figure out how to do cooldown stuff so they cant attack if they are already attacking
-        if (Input.GetMouseButtonDown(0) & !BufferedSecondary && CanAttack)
+        if (Input.GetMouseButtonDown(0) & !BufferedSecondary && CanAttack && CanMain)
         {
 
             BufferedMain = true;
 
         }
 
-        if (Input.GetMouseButtonDown(1) && !BufferedMain && UH.SecondaryMove && CanAttack)
+        if (Input.GetMouseButtonDown(1) && !BufferedMain && UH.SecondaryMove && CanAttack && CanSecondary)
         {
 
             BufferedSecondary = true;
