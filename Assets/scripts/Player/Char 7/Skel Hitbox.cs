@@ -71,7 +71,7 @@ public class SkelHitbox : MonoBehaviour
 
             if (Upgrades.MainUpgrade2) {
 
-               // Instantiate(LifeGhost, transform.position, transform.rotation);
+                Instantiate(LifeGhost, transform.position, transform.rotation);
             
             }
 

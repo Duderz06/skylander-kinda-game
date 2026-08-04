@@ -9,9 +9,9 @@ public class Skeleton : MonoBehaviour
 {
 
 
-    public Transform Target;
-    public NavMeshAgent NMA;
-    public UpgradeHandler UH;
+    private Transform Target;
+    private NavMeshAgent NMA;
+    private UpgradeHandler UH;
 
     public float Range = 10f;
 

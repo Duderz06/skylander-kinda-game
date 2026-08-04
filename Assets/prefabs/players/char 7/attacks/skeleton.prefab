@@ -127,7 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkelHitbox
   Damage: 5
   LifeTime: 10
-  LifeGhost: {fileID: 0}
+  LifeGhost: {fileID: 3587434669579539564, guid: 3b1b422a5454e084e9520876a78ff19c, type: 3}
   SpawnBones: 0
   Bones: {fileID: 4501871365349510403, guid: 7b926ea74cf954f4db851afcc2cd2a6e, type: 3}
   BoneSpawnSpot: {fileID: 5212887257833647548}
@@ -197,7 +197,7 @@ Transform:
   m_GameObject: {fileID: 8788509116508356204}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.60018075, y: -0.00000023841858, z: -8.672414}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children:
