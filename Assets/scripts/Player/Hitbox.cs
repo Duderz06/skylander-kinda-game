@@ -9,7 +9,11 @@ public class Hitbox : MonoBehaviour
 
     public float LifeTime = 0.25f;
 
+    
+
+
     public bool DestroyOnHit = false;
+    public GameObject ObjToDestroy=null;
 
     public bool InflictDOT=false;
     public float DOTDamage = 0f;
@@ -23,6 +27,12 @@ public class Hitbox : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
     {
+        if (ObjToDestroy == null) {
+
+            ObjToDestroy = gameObject;
+        
+        }
+
 
         StartCoroutine(DestoryAfterTime());
 
@@ -41,7 +51,7 @@ public class Hitbox : MonoBehaviour
     {
         yield return new WaitForSeconds(LifeTime);
 
-        Destroy(gameObject);
+        Destroy(ObjToDestroy);
 
 
 
@@ -79,7 +89,7 @@ public class Hitbox : MonoBehaviour
 
             if (DestroyOnHit) { 
             
-                Destroy(gameObject);
+                Destroy(ObjToDestroy);
             
             }
 
