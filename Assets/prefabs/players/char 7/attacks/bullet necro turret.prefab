@@ -159,8 +159,8 @@ MonoBehaviour:
   DestroyOnHit: 1
   ObjToDestroy: {fileID: 0}
   InflictDOT: 0
-  DOTDamage: 0
-  DOTTime: 0
+  DOTDamage: 0.5
+  DOTTime: 2
   LifeSteal: 0
 --- !u!114 &1595067030126393959
 MonoBehaviour:

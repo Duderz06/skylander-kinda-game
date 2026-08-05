@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -25,6 +27,13 @@ public class NecroTurret : MonoBehaviour
     public GameObject Bullet;
 
     private bool CanShoot = true;
+
+
+    private bool CanAura = true;
+    public float AuraDamage = 1f;
+    public float AuraDownTime = 0.5f;
+    public float AuraRange = 10f;
+    public float PassiveAuraDamageIncrease = 1f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -84,13 +93,27 @@ public class NecroTurret : MonoBehaviour
 
                 float speed = BulletSpeed;
 
+
+                if (Upgrades.SecondaryUpgrade4)
+                {
+
+
+                    HB.DestroyOnHit = false;
+                    HB.InflictDOT = true;
+
+                }
+
                 if (Upgrades.Passive && Vector3.Distance(transform.position, Player.transform.position) <= AC7.PassiveRange) {
 
                     damage += PassiveDamageIncrease;
 
                     speed += PassiveSpeedIncrease;
 
+
+                    
                 }
+
+               
 
 
                 HB.Damage = damage;
@@ -102,6 +125,50 @@ public class NecroTurret : MonoBehaviour
             }
         
         }
+
+
+        
+
+        if (Upgrades.SecondaryUpgrade2 && enemies.Length > 0 && CanAura) {
+
+
+            foreach (GameObject enemy in enemies)
+            {
+
+                if (Vector3.Distance(transform.position, enemy.transform.position) <= AuraRange)
+                {
+
+                    EnemyParent EP = enemy.GetComponent<EnemyParent>();
+
+                    float damage = AuraDamage;
+
+
+                    if (Upgrades.Passive && Vector3.Distance(transform.position, Player.transform.position) <= AC7.PassiveRange)
+                    {
+
+                        damage += PassiveAuraDamageIncrease;
+
+
+                    }
+
+                    EP.TakeDamage(damage);
+
+                    StartCoroutine(AuraDownTimer());
+
+                }
+
+            }
+
+
+
+
+            
+
+
+
+        }
+
+
 
 
     }
@@ -130,6 +197,17 @@ public class NecroTurret : MonoBehaviour
 
 
         CanShoot = true;
+
+    }
+
+    public IEnumerator AuraDownTimer()
+    {
+        CanAura = false;
+
+        yield return new WaitForSeconds(AuraDownTime);
+
+
+        CanAura = true;
 
     }
 
