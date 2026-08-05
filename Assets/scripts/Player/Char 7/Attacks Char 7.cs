@@ -28,13 +28,19 @@ public class AttacksChar7 : AttackParent
     public GameObject Turret;
     public float SecondaryAttackDownTime = 0.5f;
 
+    public int AmountOfTurrets = 1;
+    public List<GameObject> CreatedTurrets = new List<GameObject>();
 
     [Header("Secondary Attack Upgrade Changes")]
 
     public float SecondaryUpgrade1DamageIncrease = 3f;
+    public int SecondaryUpgrade1AmountIncrease = 1;
     public float SecondaryUpgrade2DamageIncrease = 2f;
-    
 
+
+    [Header("passive stuff")]
+
+    public float PassiveRange = 7f;
 
 
 
@@ -153,176 +159,28 @@ public class AttacksChar7 : AttackParent
     public override void SecondaryAttack()
     {
 
-        /**
-        GameObject FireObj = Instantiate(FirePrefab, FireSpot.position, FireSpot.rotation);
+        GameObject MadeTurret = Instantiate(Turret, TurretSummonSpot.position, TurretSummonSpot.rotation);
 
-        FireObj.transform.parent = FireSpot;
+        CreatedTurrets.Add(MadeTurret);
 
-        Hitbox FireScript = FireObj.GetComponent<Hitbox>();
+        float AllowedTurrets = AmountOfTurrets;
 
+        if (Upgrades.SecondaryUpgrade1) {
 
-
-        GameObject BigFireBall = null;
-
-        List<GameObject> SmallFireBalls = new List<GameObject>();
-
-
-        if (Upgrades.SecondaryUpgrade1)
-        {
-
-            FireScript.Damage += SecondaryUpgrade1DamageIncrease;
-
-            BigFireBall = Instantiate(FireballBigPrefab, FireSpot.position, FireSpot.rotation);
-
-            if (Upgrades.UltimateUpgrade)
-            {
-
-                BigFireBall.GetComponent<Hitbox>().DOTDamage += SecondaryUltimateUpgradeDotIncrease;
-
-
-
-            }
-
+            AllowedTurrets += SecondaryUpgrade1AmountIncrease;
+        
         }
 
-        if (Upgrades.SecondaryUpgrade2)
-        {
-
-            FireScript.Damage += SecondaryUpgrade2DamageIncrease;
-
-            Vector3 BaseSize = FireObj.transform.localScale;
-
-            Vector3 NewSize = new Vector3(BaseSize.x + SecondaryUpgrade2SizeIncrease, BaseSize.y + SecondaryUpgrade2SizeIncrease, BaseSize.z + SecondaryUpgrade2SizeIncrease);
-
-            FireObj.transform.localScale = NewSize;
-
-
-        }
-
-        if (Upgrades.SecondaryUpgrade3)
-        {
-
-            FireScript.Damage += SecondaryUpgrade1DamageIncrease;
-
-
-
-
-
-            for (int i = 0; i < SecondaryUpgrade3FireballCount; i++) {
-
-
-                GameObject SmallFireBall = Instantiate(FireballSmallPrefab, FireSpot.position, FireSpot.rotation);
-
-                SmallFireBalls.Add(SmallFireBall);
-                
-                SmallFireBall.transform.localScale *= SecondaryUpgrade3SizeChange;
-
-                FireballScript FBS = SmallFireBall.GetComponent<FireballScript>();
-                FBS.ForwardSpeed = SecondaryUpgrade3FireballSpeed;
-
-
-                Hitbox HB = SmallFireBall.GetComponent <Hitbox>();
-                HB.LifeTime = SecondaryUpgrade3FireballLifeTime;
-
-                if (Upgrades.UltimateUpgrade)
-                {
-
-                    HB.DOTDamage += SecondaryUltimateUpgradeDotIncrease;
-
-
-
-                }
-
-            }
-
-
-            int Amount = SmallFireBalls.Count;
-
-            for (int i = 0; i < Amount; i++)
-            {
-                float Angle;
-
-
-                if (Amount == 1)
-                {
-                    Angle = 0;
-
-
-                }
-
-
-                else
-                {
-                    Angle = Mathf.Lerp(-SecondaryUpgrade3ArcSize / 2f,SecondaryUpgrade3ArcSize / 2f,(float)i / (Amount - 1));
-
-
-                }
-
-
-                SmallFireBalls[i].transform.localRotation = transform.rotation * Quaternion.Euler(0, Angle, 0);
-
-
-            }
-
-
-
-        }
-
-
-        if (Upgrades.SecondaryUpgrade4)
-        {
-
-            FireScript.Damage += SecondaryUpgrade4DamageIncrease;
-
-            Vector3 BaseSize = FireObj.transform.localScale;
-
-            Vector3 NewSize = new Vector3(BaseSize.x + SecondaryUpgrade4SizeIncrease, BaseSize.y + SecondaryUpgrade4SizeIncrease, BaseSize.z + SecondaryUpgrade4SizeIncrease);
-
-            FireObj.transform.localScale = NewSize;
-
-            if (Upgrades.SecondaryUpgrade2) {
-
-
-                Vector3 BigFireballBaseSize = BigFireBall.transform.localScale;
-
-                Vector3 NewBigFireballSize = new Vector3(BaseSize.x + SecondaryUpgrade4FireballSizeIncrease, BaseSize.y + SecondaryUpgrade4FireballSizeIncrease, BaseSize.z + SecondaryUpgrade4FireballSizeIncrease);
-
-                BigFireBall.transform.localScale = NewBigFireballSize;
-
-            }
-
-
-            if (Upgrades.SecondaryUpgrade3) {
-
-
-                for (int i = 0; i < SecondaryUpgrade3FireballCount; i++)
-                {
-
-                    Vector3 SmallFireballBaseSize = SmallFireBalls[i].transform.localScale;
-
-                    Vector3 NewSmallFireballSize = new Vector3((BaseSize.x + SecondaryUpgrade4FireballSizeIncrease)/2, (BaseSize.y + SecondaryUpgrade4FireballSizeIncrease) / 2, (BaseSize.z + SecondaryUpgrade4FireballSizeIncrease) / 2);
-
-                    SmallFireBalls[i].transform.localScale = NewSmallFireballSize;
-
-                }
-
-
-
-            }
-
-        }
-
-        if (Upgrades.UltimateUpgrade)
-        {
-
-            FireScript.DOTDamage += SecondaryUltimateUpgradeDotIncrease;
-
-            
-
+        if (CreatedTurrets.Count > AllowedTurrets) {
+
+            Destroy(CreatedTurrets[0]);
+            CreatedTurrets.RemoveAt(0);
+        
         }
 
         StartCoroutine(DownTimeWaiter(SecondaryAttackDownTime));
-        */
+
+
     }
 
 

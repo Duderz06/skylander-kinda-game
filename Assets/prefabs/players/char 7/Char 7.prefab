@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1106436646620091843}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &638747747124632512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8599953277289360033}
+  m_Layer: 7
+  m_Name: turret spot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8599953277289360033
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638747747124632512}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1106436646620091843}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &731242175313791058
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,6 +197,7 @@ Transform:
   - {fileID: 958459912023679396}
   - {fileID: 7173209133634045159}
   - {fileID: 488828365089814924}
+  - {fileID: 8599953277289360033}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &696804567055241795
@@ -388,8 +420,12 @@ MonoBehaviour:
   MainUpgrade2DamageIncrease: 2
   MainUpgrade3DamageIncrease: 1
   MainUpgrade4DamageIncrease: 2
-  TurretSummonSpot: {fileID: 0}
-  Turret: {fileID: 0}
-  SecondaryAttackDownTime: 0.5
+  TurretSummonSpot: {fileID: 8599953277289360033}
+  Turret: {fileID: 6472704102624280201, guid: ba2452020f153ec419e78e55d94ff527, type: 3}
+  SecondaryAttackDownTime: 2
+  AmountOfTurrets: 1
+  CreatedTurrets: []
   SecondaryUpgrade1DamageIncrease: 3
+  SecondaryUpgrade1AmountIncrease: 1
   SecondaryUpgrade2DamageIncrease: 2
+  PassiveRange: 5

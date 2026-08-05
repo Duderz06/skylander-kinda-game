@@ -13,6 +13,8 @@ public class SkelHitbox : MonoBehaviour
     private GameObject Parent;
 
     private UpgradeHandler Upgrades;
+    private GameObject Player;
+    private AttacksChar7 AC7;
 
     public GameObject LifeGhost;
 
@@ -25,6 +27,7 @@ public class SkelHitbox : MonoBehaviour
     public float BoneForceMax = 7f;
     public float MaxBoneAngle = 45f;
 
+    public float PassiveDamageBonus=2f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
@@ -35,8 +38,8 @@ public class SkelHitbox : MonoBehaviour
         Parent = transform.parent.gameObject;
 
         Upgrades = FindAnyObjectByType<UpgradeHandler>();
-
-
+        Player = Upgrades.gameObject;
+        AC7 = Player.GetComponent<AttacksChar7>();
 
     }
 
@@ -67,7 +70,17 @@ public class SkelHitbox : MonoBehaviour
 
             EnemyParent EP = other.GetComponent<EnemyParent>();
 
-            EP.TakeDamage(Damage);
+            float damage = Damage;
+
+            if (Upgrades.Passive && Vector3.Distance(transform.position, Player.transform.position) <= AC7.PassiveRange)
+            {
+
+                damage += PassiveDamageBonus;
+
+
+            }
+
+            EP.TakeDamage(damage);
 
             if (Upgrades.MainUpgrade2) {
 
