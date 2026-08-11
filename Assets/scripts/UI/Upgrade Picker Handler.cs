@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class UpgradePickerHandler : MonoBehaviour
 {
 
+    private PlayerControls Input;
+
     public UpgradeHandler UH;
 
     public List<Button> Buttons = new List<Button>();
@@ -20,7 +22,17 @@ public class UpgradePickerHandler : MonoBehaviour
     public Image ShowcaseImage;
     public TextMeshProUGUI UpgradeDesc;
     public TextMeshProUGUI UpgradeName;
-    
+
+
+    public int HoveredOver = 0;
+    //min 0 max 13
+
+    private bool BufferedUp = false;
+    private bool BufferedLeft = false;
+    private bool BufferedDown = false;
+    private bool BufferedRight = false;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,13 +41,134 @@ public class UpgradePickerHandler : MonoBehaviour
         PickedUpgrade();
     }
 
-    // Update is called once per frame
+    void Awake()
+    {
+        Input = new PlayerControls();
+
+    }
+
+
+
+
+
     void Update()
     {
 
+        if (Input.upgradeselection.cursorup.WasPressedThisFrame() && !BufferedDown && !BufferedLeft && !BufferedRight)
+        {
+
+            BufferedUp= true;
+
+            MoveCursor();
+        }
+
+        if (Input.upgradeselection.cursordown.WasPressedThisFrame() && !BufferedUp && !BufferedLeft && !BufferedRight)
+        {
+
+
+            BufferedDown = true;
+
+            MoveCursor();
+
+        }
+
+        if (Input.upgradeselection.cursorleft.WasPressedThisFrame() && !BufferedDown && !BufferedUp && !BufferedRight)
+        {
+
+            BufferedLeft = true;
+
+
+            MoveCursor();
+
+        }
+
+        if (Input.upgradeselection.cursorright.WasPressedThisFrame() && !BufferedDown && !BufferedLeft && !BufferedUp)
+        {
+
+            BufferedRight = true;
+
+
+            MoveCursor();
+
+        }
 
 
     }
+
+
+    public void MoveCursor() {
+
+        if (BufferedUp && HoveredOver >= 2 && HoveredOver <= 10)
+        {
+
+            HoveredOver--;
+
+        }
+
+        else if (BufferedDown && HoveredOver >= 1 && HoveredOver <= 9)
+        {
+
+
+            HoveredOver++;
+
+        }
+
+        else if (BufferedRight) {
+
+            if (HoveredOver == 0 || HoveredOver == 10 || HoveredOver == 11 || HoveredOver == 12) {
+
+                HoveredOver++;
+            
+            
+            }
+            else
+            {
+                HoveredOver += 2;
+            }
+
+
+        }
+
+        else if (BufferedLeft)
+        {
+
+            if (HoveredOver == 0 || HoveredOver == 11 || HoveredOver == 12)
+            {
+
+                HoveredOver--;
+
+
+            }
+            else
+            {
+                HoveredOver -= 2;
+            }
+
+
+        }
+
+
+        if (HoveredOver < 0) {
+
+            HoveredOver = 0;
+        
+        }
+
+        if (HoveredOver > 13) { 
+        
+            HoveredOver = 13;
+        }
+
+        BufferedUp = false;
+        BufferedDown = false;
+        BufferedLeft = false;
+        BufferedRight = false;
+
+
+        Debug.Log(HoveredOver);
+
+    }
+
 
     public void UpdateColours() {
 
@@ -433,12 +566,14 @@ public class UpgradePickerHandler : MonoBehaviour
     private void OnEnable()
     {
         Time.timeScale = 0f;
+        Input.Enable();
 
     }
 
     private void OnDisable()
     {
         Time.timeScale = 1f;
+        Input.Disable();
 
     }
 

@@ -3,6 +3,7 @@ using UnityEngine.UIElements;
 
 public class AttackHandler : MonoBehaviour
 {
+    private PlayerControls Input;
 
     private bool BufferedMain = false;
     private bool BufferedSecondary = false;
@@ -23,24 +24,48 @@ public class AttackHandler : MonoBehaviour
 
     }
 
+
+    void Awake()
+    {
+        Input = new PlayerControls();
+
+    }
+
+    void OnEnable()
+    {
+
+        Input.Enable();
+
+    }
+
+    void OnDisable()
+    {
+
+        Input.Disable();
+
+    }
+
+
     // Update is called once per frame
     void Update()
     {
-
-        //figure out how to do cooldown stuff so they cant attack if they are already attacking
-        if (Input.GetMouseButtonDown(0) & !BufferedSecondary && CanAttack && CanMain)
+        
+        if (Input.gameplay.mainattack.WasPressedThisFrame() && !BufferedSecondary && CanAttack && CanMain)
         {
+
 
             BufferedMain = true;
 
         }
 
-        if (Input.GetMouseButtonDown(1) && !BufferedMain && UH.SecondaryMove && CanAttack && CanSecondary)
+        if (Input.gameplay.secondaryattack.WasPressedThisFrame() && !BufferedMain && UH.SecondaryMove && CanAttack && CanSecondary)
         {
+
 
             BufferedSecondary = true;
 
         }
+        
 
     }
 

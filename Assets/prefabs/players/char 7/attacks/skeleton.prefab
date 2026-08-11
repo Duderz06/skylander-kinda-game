@@ -135,6 +135,7 @@ MonoBehaviour:
   BoneForceMin: 5
   BoneForceMax: 7
   MaxBoneAngle: 45
+  PassiveDamageBonus: 2
 --- !u!1 &5059419974729983727
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +345,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6daa73c26f8759841a83d1d4aa74e7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Skeleton
-  Target: {fileID: 0}
-  NMA: {fileID: 0}
-  UH: {fileID: 0}
   Range: 17

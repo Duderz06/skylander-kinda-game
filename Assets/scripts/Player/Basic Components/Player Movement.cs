@@ -3,6 +3,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
+    private PlayerControls Input;
+
     public float MoveSpeed = 5f;
     public float Acceleration = 1f;
     public float RotateSpeed = 25f;
@@ -24,60 +26,60 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
+    void Awake()
+    {
+        Input = new PlayerControls();
 
+    }
+
+    void OnEnable()
+    {
+
+        Input.Enable();
+
+    }
+
+    void OnDisable()
+    {
+
+        Input.Disable();
+
+    }
 
     // Update is called once per frame
     void Update()
     {
 
-        Movement = Vector3.zero;
+        Vector3 DirForward = Cam.forward;
+        Vector3 DirRight = Cam.right;
 
-        Vector3 DirF = Cam.forward;
-        Vector3 DirR = Cam.right;
+        DirForward.y = 0;
 
-        DirF.y = 0;
-        DirR.y = 0;
+        DirRight.y = 0;
 
-        DirF.Normalize();
-        DirR.Normalize();
+
+        DirForward.Normalize();
+        DirRight.Normalize();
+
+
+        Vector2 MoveInput = Input.gameplay.movement.ReadValue<Vector2>();
+
 
         if (CanMove)
         {
+            Movement = DirForward * MoveInput.y + DirRight * MoveInput.x;
 
-            if (Input.GetKey(KeyCode.W))
-            {
+        }
 
-                Movement += DirF;
-            }
+        else
+        {
+            Movement = Vector3.zero;
 
-
-
-            if (Input.GetKey(KeyCode.S))
-            {
-
-                Movement -= DirF;
-
-            }
-
-
-            if (Input.GetKey(KeyCode.D))
-            {
-
-                Movement += DirR;
-
-            }
-
-
-            if (Input.GetKey(KeyCode.A))
-            {
-
-                Movement -= DirR;
-
-            }
         }
 
         Movement.Normalize();
-        
+
+
     }
 
     void FixedUpdate()
