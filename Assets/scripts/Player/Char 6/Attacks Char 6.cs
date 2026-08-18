@@ -146,7 +146,7 @@ public class AttacksChar6 : AttackParent
     public override void SecondaryAttack()
     {
 
-        GameObject slot = Instantiate(Slots, SlotSpot.position, SlotSpot.rotation);
+        GameObject slot = Instantiate(Slots, SlotSpot.position, Slots.transform.rotation);
 
         slot.transform.parent = SlotSpot;
 
