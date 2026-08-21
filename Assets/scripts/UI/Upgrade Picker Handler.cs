@@ -24,6 +24,9 @@ public class UpgradePickerHandler : MonoBehaviour
     public TextMeshProUGUI UpgradeName;
 
 
+    public Image ButtonSelectedImage;
+    public List<RectTransform> ButtonSpots = new List<RectTransform>();
+
     public int HoveredOver = 0;
     //min 0 max 13
 
@@ -57,7 +60,7 @@ public class UpgradePickerHandler : MonoBehaviour
         if (Input.upgradeselection.cursorup.WasPressedThisFrame() && !BufferedDown && !BufferedLeft && !BufferedRight)
         {
 
-            BufferedUp= true;
+            BufferedUp = true;
 
             MoveCursor();
         }
@@ -89,6 +92,105 @@ public class UpgradePickerHandler : MonoBehaviour
 
 
             MoveCursor();
+
+        }
+
+
+
+        if (Input.upgradeselection.selectupgrade.WasPressedThisFrame())
+        {
+
+            if (HoveredOver == 1)
+            {
+
+                UnlockSecondary();
+
+
+            }
+
+            else if (HoveredOver == 2) { 
+            
+                UnlockPassive();
+            
+            }
+
+            else if (HoveredOver == 3)
+            {
+
+                UnlockMainUpgrade1();
+
+            }
+
+            else if (HoveredOver == 4)
+            {
+
+                UnlockSecondaryUpgrade1();
+
+            }
+
+
+            else if (HoveredOver == 5)
+            {
+
+                UnlockMainUpgrade2();
+
+            }
+
+            else if (HoveredOver == 6)
+            {
+
+                UnlockSecondaryUpgrade2();
+
+            }
+
+            else if (HoveredOver == 7)
+            {
+
+                UnlockMainUpgrade3();
+
+            }
+
+            else if (HoveredOver == 8)
+            {
+
+                UnlockSecondaryUpgrade3();
+
+            }
+
+            else if (HoveredOver == 9)
+            {
+
+                UnlockMainUpgrade4();
+
+            }
+
+            else if (HoveredOver == 10)
+            {
+
+                UnlockSecondaryUpgrade4();
+
+            }
+
+            else if (HoveredOver == 11)
+            {
+
+                UnlockFinalUpgrade1();
+
+            }
+
+            else if (HoveredOver == 12)
+            {
+
+                UnlockFinalUpgrade2();
+
+            }
+
+            else if (HoveredOver == 13)
+            {
+
+                UnlockUltimateUpgrade();
+
+            }
 
         }
 
@@ -164,8 +266,9 @@ public class UpgradePickerHandler : MonoBehaviour
         BufferedLeft = false;
         BufferedRight = false;
 
+        ImageAndDescShower(HoveredOver);
 
-        Debug.Log(HoveredOver);
+        ButtonSelectedImage.rectTransform.position = ButtonSpots[HoveredOver].position;
 
     }
 
@@ -567,6 +670,7 @@ public class UpgradePickerHandler : MonoBehaviour
     {
         Time.timeScale = 0f;
         Input.Enable();
+        ImageAndDescShower(HoveredOver);
 
     }
 
