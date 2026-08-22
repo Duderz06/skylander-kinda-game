@@ -7,6 +7,8 @@ using UnityEngine.AI;
 
 public class EnemyParent : MonoBehaviour
 {
+    private ThingyTracker TT;
+
     [Header("parent stuff")]
 
     public float Hp = 15f;
@@ -41,6 +43,8 @@ public class EnemyParent : MonoBehaviour
         UH = Player.GetComponent<UpgradeHandler>();
         
         NMA = GetComponent<NavMeshAgent>();
+
+        TT = FindAnyObjectByType<ThingyTracker>();
 
     }
 
@@ -186,7 +190,7 @@ public class EnemyParent : MonoBehaviour
         }
 
 
-
+        TT.EnemiesKilled++;
 
         Destroy(gameObject);
     }

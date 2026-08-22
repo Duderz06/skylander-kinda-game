@@ -15,11 +15,13 @@ public class PlayerHealthHandler : MonoBehaviour
 
     public GameObject DamageNumber;
     public Transform DamageNumberSpot;
+    public ThingyTracker TT;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
     {
         Hp = MaxHp;
+        TT = FindAnyObjectByType<ThingyTracker>();
 
     }
 
@@ -55,6 +57,8 @@ public class PlayerHealthHandler : MonoBehaviour
 
             }
 
+            TT.DamageTaken += damage;
+            
 
         }
 

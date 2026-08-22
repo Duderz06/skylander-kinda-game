@@ -96,6 +96,11 @@ public class Char1HpHandler : PlayerHealthHandler
 
 
             }
+
+
+            TT.DamageTaken += damage;
+
+
         }
 
     }
