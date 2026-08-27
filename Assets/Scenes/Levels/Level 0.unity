@@ -1216,6 +1216,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 176376728}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &190831161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 190831162}
+  m_Layer: 0
+  m_Name: level select level upper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &190831162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190831161}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 13.63}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &223499595
 GameObject:
   m_ObjectHideFlags: 0
@@ -7302,6 +7333,10 @@ PrefabInstance:
       propertyPath: PlayerSpawnSpot
       value: 
       objectReference: {fileID: 785599297}
+    - target: {fileID: 1006738725529387564, guid: f9c58379770793b4fa039b1dc41e916a, type: 3}
+      propertyPath: XPOrbSpawnPoint
+      value: 
+      objectReference: {fileID: 190831162}
     - target: {fileID: 8647559852220263362, guid: f9c58379770793b4fa039b1dc41e916a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -15434,6 +15469,7 @@ SceneRoots:
   - {fileID: 1601606730}
   - {fileID: 785599297}
   - {fileID: 1025452999}
+  - {fileID: 190831162}
   - {fileID: 1256301874}
   - {fileID: 744131533}
   - {fileID: 1967152265}

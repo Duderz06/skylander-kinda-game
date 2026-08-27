@@ -44,6 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdfe8effdd0cbfd48bda24c51c883b2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStuffTracker
+  XPOrbs:
+  - {fileID: 8206576921933790279, guid: 3fec17c778a8fb84faae62ce13efe942, type: 3}
+  - {fileID: 9006945698396153363, guid: aa88b23a0cab02c429e0f8fbe3edaccc, type: 3}
+  - {fileID: 3089283522714731181, guid: cfa0afca2403df04d893db53c60c80e9, type: 3}
+  XPOrbAmount:
+  - 1
+  - 5
+  - 10
   ShouldSpawnPlayer: 1
   PlayerSpawnSpot: {fileID: 0}
   Characters:
