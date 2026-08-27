@@ -34,10 +34,10 @@ public class UpgradeHandler : MonoBehaviour
     public GameObject UpgradePickerMenu;
 
 
+
     private void Awake()
     {
         UpgradePickerMenu = GameObject.Find("upgrade thing");
-
 
     }
 
@@ -54,6 +54,8 @@ public class UpgradeHandler : MonoBehaviour
 
         }
 
+        PlayerStuffTracker.XPGained = XPGained;
+        PlayerStuffTracker.Level = Level;
 
 
     }

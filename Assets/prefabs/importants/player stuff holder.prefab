@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8751388969764743920
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8647559852220263362}
+  - component: {fileID: 1006738725529387564}
+  m_Layer: 0
+  m_Name: player stuff holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8647559852220263362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8751388969764743920}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1006738725529387564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8751388969764743920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdfe8effdd0cbfd48bda24c51c883b2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStuffTracker
+  ShouldSpawnPlayer: 1
+  PlayerSpawnSpot: {fileID: 0}
+  Characters:
+  - {fileID: 4197428318613780556, guid: 2a086b97da5b85f4982425e3ceb82fba, type: 3}
+  - {fileID: 7250263096265677203, guid: daea64706c9e6bb46a21827452014fb9, type: 3}
+  - {fileID: 2663840923323472658, guid: 8f1979fcbfc2031419cc53b8090c7e03, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 6565026724394265144, guid: b84b1521297559f4c942bf95008b8b26, type: 3}
+  - {fileID: 2676980921780416047, guid: c0ae1d5ff59e43e499a0bd5a8dc94611, type: 3}

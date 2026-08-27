@@ -5,6 +5,7 @@ using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.PlayerSettings;
 
 public class UpgradePickerHandler : MonoBehaviour
 {
@@ -37,6 +38,8 @@ public class UpgradePickerHandler : MonoBehaviour
     private bool BufferedRight = false;
 
 
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -49,9 +52,10 @@ public class UpgradePickerHandler : MonoBehaviour
     {
         Input = new PlayerControls();
 
+
+
+
     }
-
-
 
 
 
@@ -430,7 +434,25 @@ public class UpgradePickerHandler : MonoBehaviour
 
 
         UpdateColours();
-        
+
+        PlayerStuffTracker.MainMove = UH.MainMove;
+        PlayerStuffTracker.SecondaryMove = UH.SecondaryMove;
+        PlayerStuffTracker.Passive = UH.Passive;
+        PlayerStuffTracker.MainUpgrade1 = UH.MainUpgrade1;
+        PlayerStuffTracker.MainUpgrade2 = UH.MainUpgrade2;
+        PlayerStuffTracker.MainUpgrade3 = UH.MainUpgrade3;
+        PlayerStuffTracker.MainUpgrade4 = UH.MainUpgrade4;
+        PlayerStuffTracker.SecondaryUpgrade1 = UH.SecondaryUpgrade1;
+        PlayerStuffTracker.SecondaryUpgrade2 = UH.SecondaryUpgrade2;
+        PlayerStuffTracker.SecondaryUpgrade3 = UH.SecondaryUpgrade3;
+        PlayerStuffTracker.SecondaryUpgrade4 = UH.SecondaryUpgrade4;
+        PlayerStuffTracker.FinalUpgrade1= UH.FinalUpgrade1;
+        PlayerStuffTracker.FinalUpgrade2= UH.FinalUpgrade2;
+        PlayerStuffTracker.UltimateUpgrade= UH.UltimateUpgrade;
+        PlayerStuffTracker.ChoseTopPath1 = UH.ChoseTopPath1;
+        PlayerStuffTracker.ChoseTopPath2 = UH.ChoseTopPath2;
+
+
         UH.UpgradePickerMenu.SetActive(false);
     
     }
@@ -440,30 +462,33 @@ public class UpgradePickerHandler : MonoBehaviour
 
     public void ImageAndDescShower(int WhichOne) {
 
-        if (CID.ShowcaseImages[WhichOne] != null) {
-
-            ShowcaseImage.sprite = CID.ShowcaseImages[WhichOne];
-
-
-        }
-
-        if (CID.UpgradeDesc[WhichOne] != null)
+        if (CID != null)
         {
+            if (CID.ShowcaseImages[WhichOne] != null)
+            {
 
-            UpgradeDesc.text = CID.UpgradeDesc[WhichOne];
+                ShowcaseImage.sprite = CID.ShowcaseImages[WhichOne];
 
+
+            }
+
+            if (CID.UpgradeDesc[WhichOne] != null)
+            {
+
+                UpgradeDesc.text = CID.UpgradeDesc[WhichOne];
+
+
+            }
+
+            if (CID.UpgradeNames[WhichOne] != null)
+            {
+
+                UpgradeName.text = CID.UpgradeNames[WhichOne];
+
+
+            }
 
         }
-
-        if (CID.UpgradeNames[WhichOne] != null)
-        {
-
-            UpgradeName.text = CID.UpgradeNames[WhichOne];
-
-
-        }
-
-
 
 
     }
