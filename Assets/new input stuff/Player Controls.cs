@@ -428,6 +428,200 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Title Screen"",
+            ""id"": ""5efd9f08-a540-494e-b576-7a1a0ec148d6"",
+            ""actions"": [
+                {
+                    ""name"": ""move up"",
+                    ""type"": ""Button"",
+                    ""id"": ""150d5b0b-df0f-4a52-a011-e38400aec5bb"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""move down"",
+                    ""type"": ""Button"",
+                    ""id"": ""85bafb35-60af-4922-aaa0-c5740eaaf5e4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""move left"",
+                    ""type"": ""Button"",
+                    ""id"": ""a3cd63b7-7e5c-4010-ba98-5706483a708c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""move right"",
+                    ""type"": ""Button"",
+                    ""id"": ""2405e2e9-0a44-4b21-9cee-ca736344f119"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""select"",
+                    ""type"": ""Button"",
+                    ""id"": ""d91eb690-27e5-47b5-a345-9d6d75ad800c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""back"",
+                    ""type"": ""Button"",
+                    ""id"": ""496fa335-d083-4a6a-9b43-dc347546f751"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""fcae5ea9-59f8-4b94-bb73-9a998fc2c2fc"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0721b42a-b39d-4f20-b594-4e968a0ad8cf"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2cf37dc6-a152-4d5a-9546-2b899ebc3816"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d56d823d-c2af-4629-9998-f01ef6500936"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""77f6c8d4-4a5b-40a5-b69b-6699f3b9c150"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""move up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cf87214b-f858-43cb-93e2-5f5d5c30d66a"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""move up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""65cbdf85-853e-4bb8-8a5c-ed0dd83a6563"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""move down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""07ce47f2-b57e-4f44-b76f-749bb7793083"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""move down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aa626b17-7e38-48b7-a2e7-e0d83845f196"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""move left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4775f3eb-8667-483f-a497-e9f621b7dfdc"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""move left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cfdd12d6-9e4b-4916-af85-91ba72852d37"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""move right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""13a3f9d6-35f7-46f4-aef4-2211e33423a2"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""move right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -444,12 +638,21 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_upgradeselection_cursorleft = m_upgradeselection.FindAction("cursor left", throwIfNotFound: true);
         m_upgradeselection_cursorright = m_upgradeselection.FindAction("cursor right", throwIfNotFound: true);
         m_upgradeselection_selectupgrade = m_upgradeselection.FindAction("select upgrade", throwIfNotFound: true);
+        // Title Screen
+        m_TitleScreen = asset.FindActionMap("Title Screen", throwIfNotFound: true);
+        m_TitleScreen_moveup = m_TitleScreen.FindAction("move up", throwIfNotFound: true);
+        m_TitleScreen_movedown = m_TitleScreen.FindAction("move down", throwIfNotFound: true);
+        m_TitleScreen_moveleft = m_TitleScreen.FindAction("move left", throwIfNotFound: true);
+        m_TitleScreen_moveright = m_TitleScreen.FindAction("move right", throwIfNotFound: true);
+        m_TitleScreen_select = m_TitleScreen.FindAction("select", throwIfNotFound: true);
+        m_TitleScreen_back = m_TitleScreen.FindAction("back", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
     {
         UnityEngine.Debug.Assert(!m_gameplay.enabled, "This will cause a leak and performance issues, PlayerControls.gameplay.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_upgradeselection.enabled, "This will cause a leak and performance issues, PlayerControls.upgradeselection.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_TitleScreen.enabled, "This will cause a leak and performance issues, PlayerControls.TitleScreen.Disable() has not been called.");
     }
 
     /// <summary>
@@ -779,6 +982,157 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="UpgradeselectionActions" /> instance referencing this action map.
     /// </summary>
     public UpgradeselectionActions @upgradeselection => new UpgradeselectionActions(this);
+
+    // Title Screen
+    private readonly InputActionMap m_TitleScreen;
+    private List<ITitleScreenActions> m_TitleScreenActionsCallbackInterfaces = new List<ITitleScreenActions>();
+    private readonly InputAction m_TitleScreen_moveup;
+    private readonly InputAction m_TitleScreen_movedown;
+    private readonly InputAction m_TitleScreen_moveleft;
+    private readonly InputAction m_TitleScreen_moveright;
+    private readonly InputAction m_TitleScreen_select;
+    private readonly InputAction m_TitleScreen_back;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Title Screen".
+    /// </summary>
+    public struct TitleScreenActions
+    {
+        private @PlayerControls m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public TitleScreenActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "TitleScreen/moveup".
+        /// </summary>
+        public InputAction @moveup => m_Wrapper.m_TitleScreen_moveup;
+        /// <summary>
+        /// Provides access to the underlying input action "TitleScreen/movedown".
+        /// </summary>
+        public InputAction @movedown => m_Wrapper.m_TitleScreen_movedown;
+        /// <summary>
+        /// Provides access to the underlying input action "TitleScreen/moveleft".
+        /// </summary>
+        public InputAction @moveleft => m_Wrapper.m_TitleScreen_moveleft;
+        /// <summary>
+        /// Provides access to the underlying input action "TitleScreen/moveright".
+        /// </summary>
+        public InputAction @moveright => m_Wrapper.m_TitleScreen_moveright;
+        /// <summary>
+        /// Provides access to the underlying input action "TitleScreen/select".
+        /// </summary>
+        public InputAction @select => m_Wrapper.m_TitleScreen_select;
+        /// <summary>
+        /// Provides access to the underlying input action "TitleScreen/back".
+        /// </summary>
+        public InputAction @back => m_Wrapper.m_TitleScreen_back;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_TitleScreen; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="TitleScreenActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(TitleScreenActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="TitleScreenActions" />
+        public void AddCallbacks(ITitleScreenActions instance)
+        {
+            if (instance == null || m_Wrapper.m_TitleScreenActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_TitleScreenActionsCallbackInterfaces.Add(instance);
+            @moveup.started += instance.OnMoveup;
+            @moveup.performed += instance.OnMoveup;
+            @moveup.canceled += instance.OnMoveup;
+            @movedown.started += instance.OnMovedown;
+            @movedown.performed += instance.OnMovedown;
+            @movedown.canceled += instance.OnMovedown;
+            @moveleft.started += instance.OnMoveleft;
+            @moveleft.performed += instance.OnMoveleft;
+            @moveleft.canceled += instance.OnMoveleft;
+            @moveright.started += instance.OnMoveright;
+            @moveright.performed += instance.OnMoveright;
+            @moveright.canceled += instance.OnMoveright;
+            @select.started += instance.OnSelect;
+            @select.performed += instance.OnSelect;
+            @select.canceled += instance.OnSelect;
+            @back.started += instance.OnBack;
+            @back.performed += instance.OnBack;
+            @back.canceled += instance.OnBack;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="TitleScreenActions" />
+        private void UnregisterCallbacks(ITitleScreenActions instance)
+        {
+            @moveup.started -= instance.OnMoveup;
+            @moveup.performed -= instance.OnMoveup;
+            @moveup.canceled -= instance.OnMoveup;
+            @movedown.started -= instance.OnMovedown;
+            @movedown.performed -= instance.OnMovedown;
+            @movedown.canceled -= instance.OnMovedown;
+            @moveleft.started -= instance.OnMoveleft;
+            @moveleft.performed -= instance.OnMoveleft;
+            @moveleft.canceled -= instance.OnMoveleft;
+            @moveright.started -= instance.OnMoveright;
+            @moveright.performed -= instance.OnMoveright;
+            @moveright.canceled -= instance.OnMoveright;
+            @select.started -= instance.OnSelect;
+            @select.performed -= instance.OnSelect;
+            @select.canceled -= instance.OnSelect;
+            @back.started -= instance.OnBack;
+            @back.performed -= instance.OnBack;
+            @back.canceled -= instance.OnBack;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="TitleScreenActions.UnregisterCallbacks(ITitleScreenActions)" />.
+        /// </summary>
+        /// <seealso cref="TitleScreenActions.UnregisterCallbacks(ITitleScreenActions)" />
+        public void RemoveCallbacks(ITitleScreenActions instance)
+        {
+            if (m_Wrapper.m_TitleScreenActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="TitleScreenActions.AddCallbacks(ITitleScreenActions)" />
+        /// <seealso cref="TitleScreenActions.RemoveCallbacks(ITitleScreenActions)" />
+        /// <seealso cref="TitleScreenActions.UnregisterCallbacks(ITitleScreenActions)" />
+        public void SetCallbacks(ITitleScreenActions instance)
+        {
+            foreach (var item in m_Wrapper.m_TitleScreenActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_TitleScreenActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="TitleScreenActions" /> instance referencing this action map.
+    /// </summary>
+    public TitleScreenActions @TitleScreen => new TitleScreenActions(this);
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "gameplay" which allows adding and removing callbacks.
     /// </summary>
@@ -850,5 +1204,55 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSelectupgrade(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Title Screen" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="TitleScreenActions.AddCallbacks(ITitleScreenActions)" />
+    /// <seealso cref="TitleScreenActions.RemoveCallbacks(ITitleScreenActions)" />
+    public interface ITitleScreenActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "move up" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMoveup(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "move down" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMovedown(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "move left" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMoveleft(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "move right" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMoveright(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "select" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSelect(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "back" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnBack(InputAction.CallbackContext context);
     }
 }
