@@ -150,6 +150,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abb0e15d2dac9c4d8bdd6285f5aa82d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CamMoveToSpot
-  YChange: 6
-  ZChange: -11.5
+  BaseYChange: 6
+  BaseZChange: -11.5
+  BaseRotation: {x: 30, y: 0, z: 0}
   MoveSpeed: 0.02
+  TopDownYChange: 12
+  TopDownZChange: 0
+  TopDown: 0
+  TopDownRotation: {x: 89.9, y: 0, z: 0}

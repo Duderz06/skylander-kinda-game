@@ -32,6 +32,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Cam Change",
+                    "type": "Button",
+                    "id": "41ebf75f-8b7e-4903-b8f8-f65f9d140dcc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -164,6 +173,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "secondary attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f003c92a-5b6a-44f3-9f9b-dc153cc4d4ba",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cam Change",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a9975989-c5a6-4c83-9eef-43d91b6f4dd6",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cam Change",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

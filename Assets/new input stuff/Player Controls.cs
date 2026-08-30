@@ -118,6 +118,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cam Change"",
+                    ""type"": ""Button"",
+                    ""id"": ""41ebf75f-8b7e-4903-b8f8-f65f9d140dcc"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -250,6 +259,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""secondary attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f003c92a-5b6a-44f3-9f9b-dc153cc4d4ba"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cam Change"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a9975989-c5a6-4c83-9eef-43d91b6f4dd6"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cam Change"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -631,6 +662,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_gameplay_movement = m_gameplay.FindAction("movement", throwIfNotFound: true);
         m_gameplay_mainattack = m_gameplay.FindAction("main attack", throwIfNotFound: true);
         m_gameplay_secondaryattack = m_gameplay.FindAction("secondary attack", throwIfNotFound: true);
+        m_gameplay_CamChange = m_gameplay.FindAction("Cam Change", throwIfNotFound: true);
         // upgrade selection
         m_upgradeselection = asset.FindActionMap("upgrade selection", throwIfNotFound: true);
         m_upgradeselection_cursorup = m_upgradeselection.FindAction("cursor up", throwIfNotFound: true);
@@ -731,6 +763,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_gameplay_movement;
     private readonly InputAction m_gameplay_mainattack;
     private readonly InputAction m_gameplay_secondaryattack;
+    private readonly InputAction m_gameplay_CamChange;
     /// <summary>
     /// Provides access to input actions defined in input action map "gameplay".
     /// </summary>
@@ -754,6 +787,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "gameplay/secondaryattack".
         /// </summary>
         public InputAction @secondaryattack => m_Wrapper.m_gameplay_secondaryattack;
+        /// <summary>
+        /// Provides access to the underlying input action "gameplay/CamChange".
+        /// </summary>
+        public InputAction @CamChange => m_Wrapper.m_gameplay_CamChange;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -789,6 +826,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @secondaryattack.started += instance.OnSecondaryattack;
             @secondaryattack.performed += instance.OnSecondaryattack;
             @secondaryattack.canceled += instance.OnSecondaryattack;
+            @CamChange.started += instance.OnCamChange;
+            @CamChange.performed += instance.OnCamChange;
+            @CamChange.canceled += instance.OnCamChange;
         }
 
         /// <summary>
@@ -809,6 +849,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @secondaryattack.started -= instance.OnSecondaryattack;
             @secondaryattack.performed -= instance.OnSecondaryattack;
             @secondaryattack.canceled -= instance.OnSecondaryattack;
+            @CamChange.started -= instance.OnCamChange;
+            @CamChange.performed -= instance.OnCamChange;
+            @CamChange.canceled -= instance.OnCamChange;
         }
 
         /// <summary>
@@ -1161,6 +1204,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSecondaryattack(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Cam Change" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCamChange(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "upgrade selection" which allows adding and removing callbacks.

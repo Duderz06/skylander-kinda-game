@@ -3099,6 +3099,10 @@ MonoBehaviour:
   TimeLeftPoints: 100
   EnemyPointsMax: 10000
   TimeForStageSeconds: 300
+  EnemiesKilledText: {fileID: 4523623995083907376}
+  MaxEnemiesText: {fileID: 3642537411230369557}
+  TimeTakenText: {fileID: 6062831664651107504}
+  DamageTakenText: {fileID: 8354277463204854700}
 --- !u!1 &4512798844699111139
 GameObject:
   m_ObjectHideFlags: 0

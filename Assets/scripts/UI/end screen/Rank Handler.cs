@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,6 +24,10 @@ public class RankHandler : MonoBehaviour
 
     public float TimeForStageSeconds = 300f;
 
+    public TextMeshProUGUI EnemiesKilledText;
+    public TextMeshProUGUI MaxEnemiesText;
+    public TextMeshProUGUI TimeTakenText;
+    public TextMeshProUGUI DamageTakenText;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -43,6 +48,40 @@ public class RankHandler : MonoBehaviour
 
     public void CalculateScore() { 
     
+        EnemiesKilledText.text = TT.EnemiesKilled+"";
+        MaxEnemiesText.text = TT.EnemiesInLevel + "";
+
+        DamageTakenText.text = TT.DamageTaken+"";
+
+       
+
+        int Minutes = 0;
+        float Seconds = TT.TimeTaken;
+
+        while (Seconds>=60) { 
+        
+
+            Seconds -= 60;
+            Minutes++;
+        
+        }
+
+        string Timer = null;
+        if (Seconds <= 9)
+        {
+
+            Timer = Minutes + ": 0" + Seconds;
+
+        }
+
+        else
+        {
+            Timer = Minutes + ":" + Seconds;
+        }
+
+
+        TimeTakenText.text = Timer;
+
         Points -= LossForDamage*TT.DamageTaken;
 
         Points += (TT.EnemiesKilled / TT.EnemiesInLevel) * EnemyPointsMax;
