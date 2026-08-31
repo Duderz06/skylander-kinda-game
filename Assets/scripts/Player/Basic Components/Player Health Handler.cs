@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealthHandler : MonoBehaviour
 {
@@ -17,11 +18,16 @@ public class PlayerHealthHandler : MonoBehaviour
     public Transform DamageNumberSpot;
     public ThingyTracker TT;
 
+    private Image HPBar;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
     {
         Hp = MaxHp;
         TT = FindAnyObjectByType<ThingyTracker>();
+
+        HPBar = GameObject.Find("hp bar").GetComponent<Image>();
+        UpdateHpBar();
 
     }
 
@@ -62,6 +68,7 @@ public class PlayerHealthHandler : MonoBehaviour
 
         }
 
+        UpdateHpBar();
     }
 
 
@@ -95,6 +102,14 @@ public class PlayerHealthHandler : MonoBehaviour
             Hp = MaxHp;
         
         }
+
+        UpdateHpBar();
+    }
+
+
+    public void UpdateHpBar() {
+
+        HPBar.fillAmount = Hp / MaxHp;
     
     
     }

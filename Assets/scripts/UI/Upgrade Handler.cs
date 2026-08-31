@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UpgradeHandler : MonoBehaviour
 {
@@ -34,10 +35,14 @@ public class UpgradeHandler : MonoBehaviour
     public GameObject UpgradePickerMenu;
 
 
+    private Image XPBar;
+
 
     private void Awake()
     {
         UpgradePickerMenu = GameObject.Find("upgrade thing");
+        XPBar = GameObject.Find("xp bar").GetComponent<Image>();
+        UpdateXpBar();
 
     }
 
@@ -57,13 +62,29 @@ public class UpgradeHandler : MonoBehaviour
         PlayerStuffTracker.XPGained = XPGained;
         PlayerStuffTracker.Level = Level;
 
-
+        UpdateXpBar();
     }
 
     public virtual void ChooseUpgrade() { 
     
         UpgradePickerMenu.SetActive(true);
 
+
+    }
+
+    public void UpdateXpBar()
+    {
+
+        if (Level != 0)
+        {
+            XPBar.fillAmount = (XPGained - EXPNeededPerLevel[Level - 1]) / (EXPNeededPerLevel[Level] - EXPNeededPerLevel[Level - 1]);
+        }
+
+        else {
+
+            XPBar.fillAmount = (XPGained / EXPNeededPerLevel[Level] );
+
+        }
 
     }
 

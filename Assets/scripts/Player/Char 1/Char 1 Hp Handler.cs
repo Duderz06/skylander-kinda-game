@@ -102,7 +102,7 @@ public class Char1HpHandler : PlayerHealthHandler
 
 
         }
-
+        UpdateHpBar();
     }
 
 

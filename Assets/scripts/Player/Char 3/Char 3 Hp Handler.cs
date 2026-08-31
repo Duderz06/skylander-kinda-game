@@ -83,11 +83,12 @@ public class Char3HpHandler : PlayerHealthHandler
 
 
         }
+        UpdateHpBar();
 
     }
 
 
-    
+
 
 
 
