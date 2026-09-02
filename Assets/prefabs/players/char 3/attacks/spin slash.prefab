@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8575186140387959884}
   m_Layer: 0
   m_Name: spin slash
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,6 +128,7 @@ MonoBehaviour:
   Damage: 10
   LifeTime: 0.25
   DestroyOnHit: 0
+  ObjToDestroy: {fileID: 0}
   InflictDOT: 0
   DOTDamage: 0
   DOTTime: 0

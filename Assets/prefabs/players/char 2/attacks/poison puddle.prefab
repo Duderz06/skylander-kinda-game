@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4103832719040204078}
   m_Layer: 0
   m_Name: poison puddle
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,6 +128,7 @@ MonoBehaviour:
   Damage: 0
   LifeTime: 1
   DestroyOnHit: 1
+  ObjToDestroy: {fileID: 0}
   InflictDOT: 1
   DOTDamage: 1
   DOTTime: 3

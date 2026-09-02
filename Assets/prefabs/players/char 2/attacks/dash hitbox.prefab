@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2848536392935696280}
   m_Layer: 0
   m_Name: dash hitbox
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,6 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Hitbox
   Damage: 3
   LifeTime: 131313
+  DestroyOnHit: 0
+  ObjToDestroy: {fileID: 0}
   InflictDOT: 0
   DOTDamage: 0
   DOTTime: 0

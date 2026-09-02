@@ -39,7 +39,7 @@ public class XpOrb : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("XP Orb")&& !other.CompareTag("Enemy") && !Started) {
+        if (!other.CompareTag("XP Orb")&& !other.CompareTag("Enemy") && !other.CompareTag("Attack") && !Started) {
 
             Started = true;
             StartCoroutine(GoToPlayer());

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6219119975848357586}
   m_Layer: 0
   m_Name: necro turret
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,6 +135,10 @@ MonoBehaviour:
   LifeTime: 7
   ShotSpot: {fileID: 4967517652860932110}
   Bullet: {fileID: 3874787565710865728, guid: 0b8c700bdc20c4642b74390212a035d5, type: 3}
+  AuraDamage: 1
+  AuraDownTime: 0.5
+  AuraRange: 10
+  PassiveAuraDamageIncrease: 1
 --- !u!1 &7952710613314825541
 GameObject:
   m_ObjectHideFlags: 0

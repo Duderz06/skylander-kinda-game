@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -168906473800629778}
   m_Layer: 0
   m_Name: char 3 slash
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,6 +129,7 @@ MonoBehaviour:
   Damage: 5
   LifeTime: 123123
   DestroyOnHit: 0
+  ObjToDestroy: {fileID: 0}
   InflictDOT: 0
   DOTDamage: 0
   DOTTime: 0

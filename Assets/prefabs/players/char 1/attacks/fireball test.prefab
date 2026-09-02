@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6146064475102293411}
   m_Layer: 0
   m_Name: fireball test
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,6 +129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Hitbox
   Damage: 5
   LifeTime: 0.5
+  DestroyOnHit: 0
+  ObjToDestroy: {fileID: 0}
   InflictDOT: 1
   DOTDamage: 0.5
   DOTTime: 1

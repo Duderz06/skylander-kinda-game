@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Hitbox
   Damage: 5
   LifeTime: 0.5
+  DestroyOnHit: 0
+  ObjToDestroy: {fileID: 0}
   InflictDOT: 1
   DOTDamage: 1
   DOTTime: 3
@@ -86,7 +88,7 @@ GameObject:
   - component: {fileID: 7640672303381641985}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

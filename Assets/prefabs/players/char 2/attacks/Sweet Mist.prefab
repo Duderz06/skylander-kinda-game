@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6598623766110629940}
   m_Layer: 0
   m_Name: Sweet Mist
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,6 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Hitbox
   Damage: 0
   LifeTime: 0.1
+  DestroyOnHit: 0
+  ObjToDestroy: {fileID: 0}
   InflictDOT: 1
   DOTDamage: 2
   DOTTime: 3
