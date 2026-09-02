@@ -48,6 +48,8 @@ public class AttacksChar2 : AttackParent
     public float SecondaryUpgrade2DamageIncrease = 2f;
     public float SecondaryUpgrade3DamageIncrease = 2f;
     public float SecondaryUpgrade3PuddleDOTIncrease = 2f;
+    public float SecondaryUpgrade4ExplosionSizeIncrease = 2f;
+    public float SecondaryUpgrade4ExplosionDamageIncrease = 2f;
     
     
 
@@ -173,6 +175,24 @@ public class AttacksChar2 : AttackParent
 
             GameObject firstdashexplosion = Instantiate(DashExplosion, DashHitboxSpot.position, DashHitboxSpot.rotation);
 
+
+            if (Upgrades.SecondaryUpgrade4) { 
+            
+                Vector3 BaseSize = firstdashexplosion.transform.localScale;
+
+                BaseSize.x += SecondaryUpgrade4ExplosionSizeIncrease;
+                BaseSize.y += SecondaryUpgrade4ExplosionSizeIncrease;
+                BaseSize.z += SecondaryUpgrade4ExplosionSizeIncrease;
+
+
+                firstdashexplosion.transform.localScale = BaseSize;
+            
+                Hitbox HB = firstdashexplosion.gameObject.GetComponent<Hitbox>();
+
+                HB.Damage += SecondaryUpgrade4ExplosionDamageIncrease;
+            
+            }
+
         }
 
         float timer = 0f;
@@ -221,7 +241,31 @@ public class AttacksChar2 : AttackParent
 
             GameObject seconddashexplosion = Instantiate(DashExplosion, DashHitboxSpot.position, DashHitboxSpot.rotation);
 
+            if (Upgrades.SecondaryUpgrade4)
+            {
+
+                Vector3 BaseSize = seconddashexplosion.transform.localScale;
+
+                BaseSize.x += SecondaryUpgrade4ExplosionSizeIncrease;
+                BaseSize.y += SecondaryUpgrade4ExplosionSizeIncrease;
+                BaseSize.z += SecondaryUpgrade4ExplosionSizeIncrease;
+
+
+                seconddashexplosion.transform.localScale = BaseSize;
+
+                Hitbox HB = seconddashexplosion.gameObject.GetComponent<Hitbox>();
+
+                HB.Damage += SecondaryUpgrade4ExplosionDamageIncrease;
+
+
+
+            }
+
+
+
         }
+
+
         Destroy(dashhitbot);
 
         
