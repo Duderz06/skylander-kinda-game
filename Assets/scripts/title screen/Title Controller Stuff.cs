@@ -9,6 +9,9 @@ public class TitleControllerStuff : MonoBehaviour
     private PlayerControls Input;
     private TitleCamera TC;
 
+    private AchievementSwapper AS;
+
+
     public int SelectedObj = 0;
 
     public List <TitleButtonClick> BackButtons = new List<TitleButtonClick> (); 
@@ -42,7 +45,7 @@ public class TitleControllerStuff : MonoBehaviour
     {
         TC = FindAnyObjectByType<TitleCamera>();
 
-
+        AS = FindAnyObjectByType<AchievementSwapper>();
     }
 
     // Update is called once per frame
@@ -98,6 +101,7 @@ public class TitleControllerStuff : MonoBehaviour
             Select();
 
         }
+
 
     }
 
@@ -297,6 +301,16 @@ public class TitleControllerStuff : MonoBehaviour
         
         }
 
+
+        else if (TC.CurrentSpot == 5)
+        {
+
+
+            AS.MoveLeft();
+
+
+        }
+
     }
 
 
@@ -377,6 +391,16 @@ public class TitleControllerStuff : MonoBehaviour
 
 
         }
+
+
+        else if (TC.CurrentSpot == 5) { 
+        
+
+            AS.MoveRight();
+        
+        
+        }
+
 
     }
 

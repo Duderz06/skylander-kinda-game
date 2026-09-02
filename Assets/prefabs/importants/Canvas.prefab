@@ -3085,11 +3085,11 @@ MonoBehaviour:
   ResultsScreen: {fileID: 4335069454719674964}
   RankImage: {fileID: 2220670342141375121}
   RankImages:
-  - {fileID: 2800000, guid: 448d3d5a9c0acd64c9864bff3a268f80, type: 3}
-  - {fileID: 2800000, guid: bb488d3a80647e141b94c360c1cae36d, type: 3}
-  - {fileID: 2800000, guid: 58e3c2861dd8d1049b3ac5f6932604bc, type: 3}
-  - {fileID: 2800000, guid: 3ee42f287003b5d4f82609725341d650, type: 3}
-  - {fileID: 2800000, guid: 71b36429d0de44c44b39b4f194289fd6, type: 3}
+  - {fileID: 2800000, guid: 81e2bea723239a44a88b4d42a2edd784, type: 3}
+  - {fileID: 2800000, guid: ec76e8ad91ffe4f4999d04b5dfd2f3ea, type: 3}
+  - {fileID: 2800000, guid: d43d82c13b143114ea3f3f0bb0fc424c, type: 3}
+  - {fileID: 2800000, guid: b0bc3b6df13c0a94d89bc5c5d532f6fb, type: 3}
+  - {fileID: 2800000, guid: a30872ab566ea414fa9dd2d5053676a9, type: 3}
   Points: 0
   PointsForRank:
   - 0
@@ -4853,7 +4853,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 71b36429d0de44c44b39b4f194289fd6, type: 3}
+  m_Texture: {fileID: 2800000, guid: a30872ab566ea414fa9dd2d5053676a9, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
