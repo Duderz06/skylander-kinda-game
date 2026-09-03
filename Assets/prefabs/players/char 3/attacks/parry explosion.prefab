@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6711341247049000740
+--- !u!1 &3553910064645168389
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7756001124695841401}
-  - component: {fileID: 5596139657156871304}
-  - component: {fileID: 2873027759992838230}
-  - component: {fileID: 2179869237836746561}
-  - component: {fileID: 7337244217545122681}
-  - component: {fileID: 6506903750926942651}
+  - component: {fileID: 452688241032566176}
+  - component: {fileID: 2990278097372175945}
+  - component: {fileID: 6476049122954875347}
+  - component: {fileID: 8416665688153789855}
+  - component: {fileID: 3618886747431631823}
   m_Layer: 0
-  m_Name: char 3 slash
-  m_TagString: Attack
+  m_Name: parry explosion
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7756001124695841401
+--- !u!4 &452688241032566176
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6711341247049000740}
+  m_GameObject: {fileID: 3553910064645168389}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 0.25, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.89451, y: 0.76, z: -9.99954}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5596139657156871304
+--- !u!33 &2990278097372175945
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6711341247049000740}
+  m_GameObject: {fileID: 3553910064645168389}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &2873027759992838230
+--- !u!23 &6476049122954875347
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6711341247049000740}
+  m_GameObject: {fileID: 3553910064645168389}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -93,13 +92,13 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2179869237836746561
+--- !u!65 &8416665688153789855
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6711341247049000740}
+  m_GameObject: {fileID: 3553910064645168389}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -114,37 +113,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7337244217545122681
+--- !u!114 &3618886747431631823
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6711341247049000740}
+  m_GameObject: {fileID: 3553910064645168389}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c52a29d5bb5a7da46a44d18cc27ea7c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hitbox
-  Damage: 5
-  LifeTime: 123123
+  Damage: 10
+  LifeTime: 0.1
   DestroyOnHit: 0
   ObjToDestroy: {fileID: 0}
   InflictDOT: 0
   DOTDamage: 0
   DOTTime: 0
   LifeSteal: 0
---- !u!114 &6506903750926942651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6711341247049000740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af853f4aecb3a8d43af102afb3f152c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Char3Parry
-  CanDestroy: 0
-  ParryExplosion: {fileID: 3553910064645168389, guid: 67bf2f93d94361f46b27e4c0c1cea911, type: 3}

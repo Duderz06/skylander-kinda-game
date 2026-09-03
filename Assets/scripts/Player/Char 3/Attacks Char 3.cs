@@ -19,7 +19,6 @@ public class AttacksChar3 : AttackParent
     public GameObject SlashBeam;
     public float DownTime = 0.25f;
 
-
     [Header("Main Attack Upgrade Changes")]
 
     public float MainUpgrade1DamageIncrease = 2f;
@@ -134,10 +133,10 @@ public class AttacksChar3 : AttackParent
 
                 hb.Damage += MainUpgrade3DamageIncrease;
 
-                DestroyEnemyHitbox DEH = go.GetComponent<DestroyEnemyHitbox>();
-                if (DEH != null) {
+                Char3Parry C3P = go.GetComponent<Char3Parry>();
+                if (C3P != null) {
 
-                    DEH.CanDestroy = true;
+                    C3P.CanDestroy = true;
                 }
 
             }

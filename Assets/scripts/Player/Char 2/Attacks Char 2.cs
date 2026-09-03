@@ -31,8 +31,6 @@ public class AttacksChar2 : AttackParent
     public float DashSpeed = 3f;
     public float DashTime = 0.5f;
     public int DashesSoFar = 0;
-    public bool BufferedSecondDash=false;
-    public bool DoingDash=false;
     public float TimeBetweenPuddles = 0.1f;
     public Transform DashHitboxSpot;
     public GameObject DashHitbox;
@@ -46,6 +44,7 @@ public class AttacksChar2 : AttackParent
 
     public float SecondaryUpgrade1DamageIncrease = 3f;
     public float SecondaryUpgrade2DamageIncrease = 2f;
+    public float SecondaryUpgrade2DashSpeedIncrease = 2f;
     public float SecondaryUpgrade3DamageIncrease = 2f;
     public float SecondaryUpgrade3PuddleDOTIncrease = 2f;
     public float SecondaryUpgrade4ExplosionSizeIncrease = 2f;
@@ -127,33 +126,18 @@ public class AttacksChar2 : AttackParent
     public override void SecondaryAttack()
     {
 
-        Debug.Log("a");
       
         GameObject dashhitbot = Instantiate(DashHitbox, DashHitboxSpot.position, DashHitboxSpot.rotation);
 
         dashhitbot.transform.parent = DashHitboxSpot;
 
 
-        if (!DoingDash)
-        {
-            DashesSoFar = 0;
+       
 
-            DashesSoFar++;
-            Debug.Log("b");
-
-            StartCoroutine(Dashing(dashhitbot));
-        }
-
-        else if (Upgrades.SecondaryUpgrade2 && DashesSoFar<2) {
+        StartCoroutine(Dashing(dashhitbot));
         
-            //never getting c
-            Debug.Log("c");
 
-            DashesSoFar++;
-
-            BufferedSecondDash = true;
-
-        }
+        
 
 
     }
@@ -161,14 +145,22 @@ public class AttacksChar2 : AttackParent
     //cannot figure out the double dash thing help asdasdasd
     public IEnumerator Dashing(GameObject dashhitbot) {
 
-        DoingDash = true;
-        Debug.Log("d");
 
         AttackHandler AH = GetComponent<AttackHandler>();
 
         
         AH.CanAttack = false;
 
+        Hitbox BaseHB = dashhitbot.GetComponent<Hitbox>();
+
+        if (Upgrades.SecondaryUpgrade2) {
+
+            BaseHB.Damage += SecondaryUpgrade2DamageIncrease;
+        
+        }
+
+
+        float speed = DashSpeed;
         
         if (Upgrades.SecondaryUpgrade3)
         {
@@ -195,6 +187,7 @@ public class AttacksChar2 : AttackParent
 
         }
 
+
         float timer = 0f;
         float puddletimer = 0f;
 
@@ -205,9 +198,6 @@ public class AttacksChar2 : AttackParent
     
 
         while (timer < DashTime) {
-
-            Debug.Log("e");
-
 
 
             timer += Time.deltaTime;
@@ -225,15 +215,34 @@ public class AttacksChar2 : AttackParent
 
             }
 
+            if (Upgrades.SecondaryUpgrade2) {
+
+                speed += SecondaryUpgrade2DashSpeedIncrease;
+            
+            }
+
+            if (!Upgrades.SecondaryUpgrade2)
+            {
+                transform.rotation.SetLookRotation(Dir);
 
 
-            transform.rotation.SetLookRotation(Dir);
+            }
 
-            rb.linearVelocity = Dir*DashSpeed;
+            else {
+
+                Dir = transform.forward;
+
+
+            }
+
+
+            rb.linearVelocity = Dir * DashSpeed;
+
 
             yield return null;
         
         }
+
         AH.CanAttack = true;
 
         if (Upgrades.SecondaryUpgrade3)
@@ -269,27 +278,7 @@ public class AttacksChar2 : AttackParent
         Destroy(dashhitbot);
 
         
-        if (BufferedSecondDash) {
-            //never getting f
-            Debug.Log("f");
 
-            BufferedSecondDash = false;
-
-            StartCoroutine(Dashing(dashhitbot));
-
-        }
-
-        if (DashesSoFar >= 2) { 
-        
-            DashesSoFar=0;
-
-            //never getting g
-            Debug.Log("g");
-
-        }
-
-
-        DoingDash = false;
 
 
 
