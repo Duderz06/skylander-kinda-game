@@ -29,11 +29,13 @@ public class AttacksChar4 : AttackParent
     public GameObject Boomerang;
     
     public float SecondaryAttackDownTime = 0.5f;
+    public bool BoomerangBack = true;
 
+    public float MultiRangAngle = 45f;
 
     [Header("Secondary Attack Upgrade Changes")]
 
-    public float SecondaryUpgrade2RangsIncrease = 1f;
+    public int SecondaryUpgrade2RangsIncrease = 1;
     public float SecondaryUpgrade2DamageIncrease = 2f;
     public float SecondaryUpgrade3DamageIncrease = 1f;
 
@@ -140,31 +142,55 @@ public class AttacksChar4 : AttackParent
 
     public override void SecondaryAttack()
     {
-        /**
-        GameObject FireObj = Instantiate(FirePrefab, FireSpot.position, FireSpot.rotation);
-
-        FireObj.transform.parent = FireSpot;
-
-        Hitbox FireScript = FireObj.GetComponent<Hitbox>();
-
-
-
-       
-
-
-        if (Upgrades.SecondaryUpgrade1)
+        if (BoomerangBack)
         {
 
-            FireScript.Damage += SecondaryUpgrade1DamageIncrease;
+            int AmountOfRangs = 1;
 
-            BigFireBall = Instantiate(FireballBigPrefab, FireSpot.position, FireSpot.rotation);
+            BoomerangBack = false;
 
-           
+            if (Upgrades.SecondaryUpgrade2) {
+
+                AmountOfRangs += SecondaryUpgrade2RangsIncrease;
+            
+            }
+
+
+
+
+            for (int i = 0; i < AmountOfRangs; i++)
+            {
+
+                float Angle = (i - (AmountOfRangs - 1) / 2f) * MultiRangAngle;
+
+
+                Quaternion RangRotation = BoomerangSpot.rotation * Quaternion.Euler(0f, Angle, 0f);
+
+
+                GameObject BoomerangObj = Instantiate(Boomerang, BoomerangSpot.position, RangRotation);
+
+
+
+                Hitbox BoomerangScript = BoomerangObj.GetComponent<Hitbox>();
+
+
+
+                if (Upgrades.SecondaryUpgrade2)
+                {
+
+                    BoomerangScript.Damage += SecondaryUpgrade2DamageIncrease;
+
+                }
+
+
+            }
+
+
+
+            StartCoroutine(DownTimeWaiter(SecondaryAttackDownTime));
         }
 
-      
-        */
-        StartCoroutine(DownTimeWaiter(SecondaryAttackDownTime));
+
 
     }
 

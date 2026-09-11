@@ -6226,9 +6226,11 @@ MonoBehaviour:
   MainUpgrade1PierceIncrease: 2
   MainUpgrade3DamageIncrease: 1
   MainUpgrade3ShotIncrease: 2
-  BoomerangSpot: {fileID: 0}
-  Boomerang: {fileID: 0}
+  BoomerangSpot: {fileID: 556208396943001674}
+  Boomerang: {fileID: 6243175649560773962, guid: d87c36975d98cfd4c998eb2a983b5626, type: 3}
   SecondaryAttackDownTime: 0.5
+  BoomerangBack: 1
+  MultiRangAngle: 45
   SecondaryUpgrade2RangsIncrease: 1
   SecondaryUpgrade2DamageIncrease: 2
   SecondaryUpgrade3DamageIncrease: 1
