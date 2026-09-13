@@ -35,6 +35,8 @@ public class AttacksChar4 : AttackParent
 
     [Header("Secondary Attack Upgrade Changes")]
 
+    public float SecondaryUpgrade1DamageIncrease = 1f;
+    public float SecondaryUpgrade1SizeIncrease = 1f;
     public int SecondaryUpgrade2RangsIncrease = 1;
     public float SecondaryUpgrade2DamageIncrease = 2f;
     public float SecondaryUpgrade3DamageIncrease = 1f;
@@ -119,6 +121,15 @@ public class AttacksChar4 : AttackParent
 
             }
 
+            if (Upgrades.MainUpgrade2)
+            {
+
+                HB.InflictDOT = true;
+
+
+            }
+
+
             if (Upgrades.MainUpgrade3) { 
             
                 HB.Damage += MainUpgrade3DamageIncrease;
@@ -174,6 +185,18 @@ public class AttacksChar4 : AttackParent
                 Hitbox BoomerangScript = BoomerangObj.GetComponent<Hitbox>();
 
 
+
+                if (Upgrades.SecondaryUpgrade1) {
+
+                    BoomerangScript.Damage += SecondaryUpgrade1DamageIncrease;
+
+                    Vector3 Size = BoomerangObj.transform.localScale;
+                    Size.x += SecondaryUpgrade1SizeIncrease;
+                    Size.y += SecondaryUpgrade1SizeIncrease;
+                    Size.z += SecondaryUpgrade1SizeIncrease;
+
+                    BoomerangObj.transform.localScale = Size;
+                }
 
                 if (Upgrades.SecondaryUpgrade2)
                 {

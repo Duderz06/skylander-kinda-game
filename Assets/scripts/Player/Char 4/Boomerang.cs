@@ -15,8 +15,14 @@ public class Boomerang : MonoBehaviour
 
     public float StayAtEndTime = 1f;
 
+    
+
 
     private Transform Player;
+
+    public float ShieldSpeed = 10f;
+    public float ShieldTime = 1f;
+    public float ShieldDistance = 0.25f;
 
     void Start()
     {
@@ -80,9 +86,67 @@ public class Boomerang : MonoBehaviour
 
         AC4.BoomerangBack = true;
 
-        Destroy(gameObject);
+
+
+        if (Upgrades.SecondaryUpgrade3)
+        {
+
+
+            StartCoroutine(BoomerangShield());
+
+
+        }
+
+        else
+        {
+            Destroy(gameObject);
+        }
+
 
     }
+
+
+
+    public IEnumerator BoomerangShield()
+    {
+        float Timer = 0f;
+
+
+        Vector3 StartDir = (transform.position - Player.position).normalized;
+
+        if (StartDir == Vector3.zero) 
+        { 
+            StartDir = Vector3.forward; 
+        
+        
+        }
+
+        float Angle = Mathf.Atan2(StartDir.z, StartDir.x) * Mathf.Rad2Deg;
+
+        while (Timer <= ShieldTime)
+        {
+            Timer += Time.deltaTime;
+
+            Angle += ShieldSpeed * Time.deltaTime;
+
+
+
+            float Radian = Angle * Mathf.Deg2Rad;
+            Vector3 Offset = new Vector3(Mathf.Cos(Radian), 0, Mathf.Sin(Radian)) * ShieldDistance;
+
+            transform.position = Player.position + Offset;
+
+           
+            transform.Rotate(Vector3.up, ShieldSpeed * Time.deltaTime);
+
+
+            yield return null;
+        }
+
+
+        Destroy(gameObject);
+    }
+
 
 
 

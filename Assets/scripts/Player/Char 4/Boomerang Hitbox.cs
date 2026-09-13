@@ -1,26 +1,30 @@
-using System.Collections;
 using UnityEngine;
 
-public class Arrow : Hitbox
+public class BoomerangHitbox : Hitbox
 {
 
-    public int Pierces = 0;
-    public int DieAfterPierces = 1;
-
-    private Vector3 StartPos;
     private AttacksChar4 AC4;
+    private Vector3 StartPos;
     private UpgradeHandler Upgrades;
 
+
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        
         StartPos = transform.position;
         AC4 = FindAnyObjectByType<AttacksChar4>();
         Upgrades = FindAnyObjectByType<UpgradeHandler>();
 
+
+        base.Start();
+        
     }
 
-    public override void OnTriggerEnter(Collider other)
+   
+
+
+    public virtual void OnTriggerEnter(Collider other)
     {
 
         if (other.CompareTag("Enemy"))
@@ -29,11 +33,14 @@ public class Arrow : Hitbox
 
             float Dist = Vector3.Distance(transform.position, StartPos);
 
-            if (Dist >= AC4.Distances[0] && Upgrades.Passive) {
+            if (Dist >= AC4.Distances[0] && Upgrades.Passive)
+            {
 
-                if (Dist >= AC4.Distances[1]) { 
-                
-                    if (Dist >= AC4.Distances[2]) {
+                if (Dist >= AC4.Distances[1])
+                {
+
+                    if (Dist >= AC4.Distances[2])
+                    {
 
                         if (Dist >= AC4.Distances[3])
                         {
@@ -45,7 +52,8 @@ public class Arrow : Hitbox
 
                             }
 
-                            else {
+                            else
+                            {
 
                                 Damage += AC4.DistDamages[3];
 
@@ -80,6 +88,9 @@ public class Arrow : Hitbox
             }
 
 
+
+
+
             EnemyParent EP = other.GetComponent<EnemyParent>();
 
             EP.TakeDamage(Damage);
@@ -105,9 +116,13 @@ public class Arrow : Hitbox
 
 
 
-            Pierces++;
-           
-            StartCoroutine(CheckPierces());
+
+            if (DestroyOnHit)
+            {
+
+                Destroy(ObjToDestroy);
+
+            }
 
         }
 
@@ -116,20 +131,5 @@ public class Arrow : Hitbox
 
     }
 
-
- 
-
-
-    public IEnumerator CheckPierces() {
-
-        yield return null;
-
-        if (Pierces >= DieAfterPierces) { 
-        
-            Destroy(gameObject);
-        
-        }
-    
-    }
 
 }

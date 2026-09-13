@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3784930298083542006}
   - component: {fileID: 1235462195356528994}
   - component: {fileID: 2707346403776214978}
-  - component: {fileID: -1173917812292191161}
+  - component: {fileID: 4098451845504091869}
   m_Layer: 0
   m_Name: Boomerang
   m_TagString: Attack
@@ -158,7 +158,10 @@ MonoBehaviour:
   Speed: 15
   IncreaseInSpeedBack: 0.1
   StayAtEndTime: 0.1
---- !u!114 &-1173917812292191161
+  ShieldSpeed: 360
+  ShieldTime: 1
+  ShieldDistance: 3
+--- !u!114 &4098451845504091869
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,9 +170,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6243175649560773962}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c52a29d5bb5a7da46a44d18cc27ea7c8, type: 3}
+  m_Script: {fileID: 11500000, guid: e2be395828549434d9fe9a69bca205ee, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Hitbox
+  m_EditorClassIdentifier: Assembly-CSharp::BoomerangHitbox
   Damage: 5
   LifeTime: 9999
   DestroyOnHit: 0
