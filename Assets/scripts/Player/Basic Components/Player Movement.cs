@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody RB;
     private Transform Cam;
 
+    public Animator CharAnimCont;
+
     private Vector3 Movement;
 
     public bool CanMove = true;
@@ -69,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Movement = DirForward * MoveInput.y + DirRight * MoveInput.x;
 
+
         }
 
         else
@@ -91,6 +94,17 @@ public class PlayerMovement : MonoBehaviour
 
         RB.linearVelocity = Vector3.MoveTowards( RB.linearVelocity, TargetVel, Acceleration * Time.fixedDeltaTime);
 
+        if (RB.linearVelocity != Vector3.zero)
+        {
+            CharAnimCont.SetBool("Moving", true);
+
+
+        }
+        else {
+
+            CharAnimCont.SetBool("Moving", false);
+
+        }
 
         Vector3 FlatVelocity = new Vector3(RB.linearVelocity.x, 0, RB.linearVelocity.z);
 
