@@ -9521,7 +9521,7 @@ MonoBehaviour:
   NameText: {fileID: 1396314374}
   DescriptionText: {fileID: 182316190}
   Name: char 4
-  Description: they do not exist
+  Description: they do ranged stuff with a crossbow and boomerangs yay
 --- !u!64 &1567352992
 MeshCollider:
   m_ObjectHideFlags: 0
