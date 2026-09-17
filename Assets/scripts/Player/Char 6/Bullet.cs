@@ -9,7 +9,7 @@ public class Bullet : Hitbox
     public bool IsCrit = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         base.Start();
 

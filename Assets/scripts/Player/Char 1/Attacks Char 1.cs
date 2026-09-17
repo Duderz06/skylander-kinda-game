@@ -217,8 +217,6 @@ public class AttacksChar1 : AttackParent
 
 
 
-
-
             for (int i = 0; i < SecondaryUpgrade3FireballCount; i++) {
 
 

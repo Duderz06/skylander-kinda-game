@@ -30,7 +30,7 @@ public class SkelHitbox : MonoBehaviour
     public float PassiveDamageBonus=2f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public void Start()
+    public void Awake()
     {
 
         StartCoroutine(DestoryAfterTime());

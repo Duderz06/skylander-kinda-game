@@ -22,7 +22,7 @@ public class Hitbox : MonoBehaviour
 
     public bool LifeSteal=false;
 
-
+    public bool Stay = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
@@ -60,7 +60,7 @@ public class Hitbox : MonoBehaviour
     public virtual void OnTriggerEnter(Collider other)
     {
 
-        if (other.CompareTag("Enemy")) {
+        if (other.CompareTag("Enemy") && !Stay) {
 
 
             EnemyParent EP = other.GetComponent<EnemyParent>();
@@ -91,6 +91,56 @@ public class Hitbox : MonoBehaviour
             
                 Destroy(ObjToDestroy);
             
+            }
+
+        }
+
+
+
+
+    }
+
+
+
+
+    public virtual void OnTriggerStay(Collider other)
+    {
+
+        if (other.CompareTag("Enemy") && Stay)
+        {
+
+
+            EnemyParent EP = other.GetComponent<EnemyParent>();
+
+            EP.TakeDamage(Damage);
+
+            if (InflictDOT)
+            {
+
+                EP.ApplyDOT(DOTDamage, DOTTime);
+
+            }
+
+
+            if (LifeSteal)
+            {
+
+                PlayerHealthHandler PHH = FindAnyObjectByType<PlayerHealthHandler>();
+
+                PHH.HealHP(Damage / 7.5f);
+
+            }
+
+
+
+
+
+
+            if (DestroyOnHit)
+            {
+
+                Destroy(ObjToDestroy);
+
             }
 
         }

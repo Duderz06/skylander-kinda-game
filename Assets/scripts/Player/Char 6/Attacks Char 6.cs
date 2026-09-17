@@ -27,6 +27,7 @@ public class AttacksChar6 : AttackParent
     public float MainUpgrade2CritDamageMultIncrease = 0.4f;
     public float MainUpgrade3DamageIncrease = 3f;
     public float MainUpgrade3CritChanceAdded = 0.03f;
+    public float MainUpgrade4Angle = 15f;
 
     public float AddedCritChanceFromSecond = 0f;
 
@@ -70,68 +71,125 @@ public class AttacksChar6 : AttackParent
     public override void MainAttack() {
 
 
+        List<GameObject> bullets = new List<GameObject>();
+
         GameObject bullet = Instantiate(Bullet, ShotSpot.position, ShotSpot.rotation);
 
+        bullets.Add(bullet);
 
 
-        Bullet bullethitbox = bullet.GetComponent<Bullet>();
 
-        float damage = bullethitbox.Damage;
-        float critmult = BaseCritDamageMult;
-        float critchance = BaseCritChance;
 
-        if (Upgrades.MainUpgrade1)
+
+        if (Upgrades.MainUpgrade4) {
+
+            GameObject bullet2 = Instantiate(Bullet, ShotSpot.position, ShotSpot.rotation);
+
+            bullets.Add(bullet2);
+
+            Vector3 dir = bullet.transform.forward;
+
+           
+
+            for (int i = 0; i < bullets.Count; i++)
+            {
+                float Angle;
+
+
+                if (bullets.Count == 1)
+                {
+                    Angle = 0;
+
+
+                }
+
+
+                else
+                {
+                    Angle = Mathf.Lerp(-MainUpgrade4Angle / 2f, MainUpgrade4Angle / 2f, (float)i / (bullets.Count - 1));
+
+
+                }
+
+
+                bullets[i].transform.localRotation = transform.rotation * Quaternion.Euler(0, Angle, 0);
+
+
+            }
+
+        }
+
+
+
+
+
+        foreach (GameObject pew in bullets)
         {
 
-            damage += MainUpgrade1DamageIncrease;
 
-            critchance += MainUpgrade1CritRateIncrease;
+            Bullet bullethitbox = pew.GetComponent<Bullet>();
 
+            float damage = bullethitbox.Damage;
+            float critmult = BaseCritDamageMult;
+            float critchance = BaseCritChance;
+
+            if (Upgrades.MainUpgrade1)
+            {
+
+                damage += MainUpgrade1DamageIncrease;
+
+                critchance += MainUpgrade1CritRateIncrease;
+
+
+            }
+
+            if (Upgrades.MainUpgrade2)
+            {
+
+                critmult += MainUpgrade2CritDamageMultIncrease;
+
+            }
+
+
+            if (Upgrades.MainUpgrade3)
+            {
+
+                critchance += MainUpgrade3AddedCritChance;
+
+
+
+            }
+
+            if (Upgrades.Passive)
+            {
+
+
+                critchance += (1 - (PHH.Hp / PHH.MaxHp)) / 2;
+
+
+            }
+
+            critchance += AddedCritChanceFromSecond;
+
+            Debug.Log(critchance);
+
+            float Crit = Random.Range(0f, 100f);
+            Crit /= 100f;
+
+            if (Crit <= critchance)
+            {
+
+
+                bullethitbox.IsCrit = true;
+
+                damage *= critmult;
+
+            }
+
+
+            bullethitbox.Damage = damage;
 
         }
-
-        if (Upgrades.MainUpgrade2)
-        {
-
-            critmult += MainUpgrade2CritDamageMultIncrease;
-
-        }
-
-
-        if (Upgrades.MainUpgrade3) {
-
-            critchance += MainUpgrade3AddedCritChance;
-
-
-
-        }
-
-        if (Upgrades.Passive) {
-
-
-            critchance += (1 - (PHH.Hp / PHH.MaxHp)) / 2;
-        
-        
-        }
-
-        critchance += AddedCritChanceFromSecond;
-
-        Debug.Log(critchance);
-
-        float Crit = Random.Range(0f, 100f);
-        Crit /= 100f;
-
-        if (Crit <= critchance) {
-
-
-            bullethitbox.IsCrit = true;
-
-            damage *= critmult;
-
-        }
-
-
-        bullethitbox.Damage = damage;
 
         AddedCritChanceFromSecond = 0f;
 

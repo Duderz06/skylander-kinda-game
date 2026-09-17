@@ -94,17 +94,22 @@ public class PlayerMovement : MonoBehaviour
 
         RB.linearVelocity = Vector3.MoveTowards( RB.linearVelocity, TargetVel, Acceleration * Time.fixedDeltaTime);
 
-        if (RB.linearVelocity != Vector3.zero)
+        if (CharAnimCont != null)
         {
-            CharAnimCont.SetBool("Moving", true);
+            if (RB.linearVelocity != Vector3.zero)
+            {
+                CharAnimCont.SetBool("Moving", true);
 
 
+            }
+            else
+            {
+
+                CharAnimCont.SetBool("Moving", false);
+
+            }
         }
-        else {
 
-            CharAnimCont.SetBool("Moving", false);
-
-        }
 
         Vector3 FlatVelocity = new Vector3(RB.linearVelocity.x, 0, RB.linearVelocity.z);
 

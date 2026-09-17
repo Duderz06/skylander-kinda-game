@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -26,6 +27,8 @@ public class NecroTurret : MonoBehaviour
     public Transform ShotSpot;
     public GameObject Bullet;
 
+    public GameObject DamageLine;
+
     private bool CanShoot = true;
 
 
@@ -41,6 +44,19 @@ public class NecroTurret : MonoBehaviour
         Upgrades = FindAnyObjectByType<UpgradeHandler>();
         Player = Upgrades.gameObject;
         AC7 = Player.GetComponent<AttacksChar7>();
+
+
+        if (Upgrades.SecondaryUpgrade3) {
+
+            GameObject Line = Instantiate(DamageLine, transform.position, transform.rotation);
+        
+            Line.transform.parent = transform;
+
+            DamagingLine DL = Line.GetComponent<DamagingLine>();
+
+            DL.Turret = transform;
+
+        }
 
         StartCoroutine(DestoryAfterTime());
 
