@@ -153,7 +153,7 @@ MonoBehaviour:
   BaseYChange: 6
   BaseZChange: -11.5
   BaseRotation: {x: 30, y: 0, z: 0}
-  MoveSpeed: 0.02
+  MoveSpeed: 5
   TopDownYChange: 12
   TopDownZChange: 0
   TopDown: 0

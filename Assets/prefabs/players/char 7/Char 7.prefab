@@ -304,7 +304,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &2709559113423196231
@@ -322,6 +322,7 @@ MonoBehaviour:
   MoveSpeed: 5
   Acceleration: 100
   RotateSpeed: 15
+  CharAnimCont: {fileID: 0}
   CanMove: 1
 --- !u!114 &3340192806542835088
 MonoBehaviour:
@@ -400,6 +401,7 @@ MonoBehaviour:
   DamageMult: 1
   DamageNumber: {fileID: 73231673538876452, guid: b9f5d761880ef65499f5dfa1eaaa1668, type: 3}
   DamageNumberSpot: {fileID: 1401995051048017613}
+  TT: {fileID: 0}
 --- !u!114 &1403719044080033817
 MonoBehaviour:
   m_ObjectHideFlags: 0

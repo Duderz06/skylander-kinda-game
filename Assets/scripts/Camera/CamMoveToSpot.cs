@@ -51,7 +51,7 @@ public class CamMoveToSpot : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
 
 
@@ -84,11 +84,12 @@ public class CamMoveToSpot : MonoBehaviour
         }
 
 
-        transform.position = Vector3.Lerp(transform.position, CamSpot, MoveSpeed);
-        transform.rotation = Quaternion.Lerp(transform.rotation, CamRotation, MoveSpeed);
+        transform.position = Vector3.Lerp(transform.position, CamSpot, MoveSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Lerp(transform.rotation, CamRotation, MoveSpeed* Time.deltaTime);
 
 
-
+        //right now when the player is moving it looks like the player is shaking a little bit
+        //i dont know how to keep it following the player but lagging behind a little bit without the player shaking
 
     }
 

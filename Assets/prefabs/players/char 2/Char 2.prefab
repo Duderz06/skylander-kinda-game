@@ -337,7 +337,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &6701612106814325951
@@ -355,6 +355,7 @@ MonoBehaviour:
   MoveSpeed: 5
   Acceleration: 100
   RotateSpeed: 15
+  CharAnimCont: {fileID: 0}
   CanMove: 1
 --- !u!114 &851953263972190318
 MonoBehaviour:
@@ -433,6 +434,7 @@ MonoBehaviour:
   DamageMult: 1
   DamageNumber: {fileID: 73231673538876452, guid: b9f5d761880ef65499f5dfa1eaaa1668, type: 3}
   DamageNumberSpot: {fileID: 8932144024154680138}
+  TT: {fileID: 0}
 --- !u!114 &8013644516389648041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,8 +458,6 @@ MonoBehaviour:
   DashSpeed: 15
   DashTime: 0.5
   DashesSoFar: 0
-  BufferedSecondDash: 0
-  DoingDash: 0
   TimeBetweenPuddles: 0.1
   DashHitboxSpot: {fileID: 488158639570876505}
   DashHitbox: {fileID: 2845230541697869329, guid: 1e3ee1c06343ab647a370822c2fdbc81, type: 3}
@@ -467,8 +467,11 @@ MonoBehaviour:
   SecondaryAttackDownTime: 0.5
   SecondaryUpgrade1DamageIncrease: 3
   SecondaryUpgrade2DamageIncrease: 2
+  SecondaryUpgrade2DashSpeedIncrease: 2
   SecondaryUpgrade3DamageIncrease: 2
   SecondaryUpgrade3PuddleDOTIncrease: 2
+  SecondaryUpgrade4ExplosionSizeIncrease: 2
+  SecondaryUpgrade4ExplosionDamageIncrease: 2
 --- !u!1001 &2480078103968028566
 PrefabInstance:
   m_ObjectHideFlags: 0
