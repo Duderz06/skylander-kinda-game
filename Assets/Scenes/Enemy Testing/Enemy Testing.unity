@@ -609,7 +609,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201554873}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.5, y: -2, z: -5.5}
   m_LocalScale: {x: 4, y: 3, z: 2}
   m_ConstrainProportionsScale: 0
@@ -721,7 +721,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 239837876}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.5, y: -2, z: -5.5}
   m_LocalScale: {x: 4, y: 3, z: 2}
   m_ConstrainProportionsScale: 0
@@ -2818,6 +2818,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HandBossAI
   HandsAlive: 2
+  Hands:
+  - {fileID: 239837876}
+  - {fileID: 201554873}
   TimeBetweenAttacks: 1.5
   RightHand: {fileID: 239837876}
   LeftHand: {fileID: 201554873}
@@ -2826,13 +2829,25 @@ MonoBehaviour:
   LeftHandBaseSpot: {fileID: 1243104509}
   HeadBaseSpot: {fileID: 831313241}
   ReturnToSpotSpeed: 10
-  ClapFollowPlayerTime: 7
+  BaseHandRotation: {x: 0, y: 0, z: 0}
+  HandRotateSpeed: 5
+  ClapFollowPlayerTime: 3
   ClapHoverHandSpeed: 7
   ClapWaitTime: 1
   ClapSpeed: 15
   ClapStuckTime: 2
   ClapHoverAroundPlayerDistance: 5
-  ClappedDistance: 1.75
+  ClappedDistance: 1
+  RHandClapRotation: {x: 0, y: -90, z: 90}
+  LHandClapRotation: {x: 0, y: 90, z: -90}
+  SlamFollowPlayerTime: 2
+  SlamHoverHandSpeed: 5
+  SlamWaitTime: 1
+  SlamStuckTime: 1
+  SlamSpeed: 15
+  SlamHoverAbovePlayerDistance: 5
+  SlamDistanceFromGround: 0
+  SlamHandRotation: {x: -90, y: 0, z: 0}
 --- !u!1 &819520943
 GameObject:
   m_ObjectHideFlags: 0
