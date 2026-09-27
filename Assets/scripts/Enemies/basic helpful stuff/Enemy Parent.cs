@@ -36,6 +36,8 @@ public class EnemyParent : MonoBehaviour
 
     public bool Died=false;
 
+    public bool CountToCounter = true;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
     {
@@ -189,8 +191,12 @@ public class EnemyParent : MonoBehaviour
             yield return null;
         }
 
+        if (CountToCounter)
+        {
+            TT.EnemiesKilled++;
+        }
 
-        TT.EnemiesKilled++;
+
 
         Destroy(gameObject);
     }
