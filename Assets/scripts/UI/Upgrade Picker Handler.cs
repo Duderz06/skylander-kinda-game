@@ -1,11 +1,9 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using TMPro;
 using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.PlayerSettings;
 
 public class UpgradePickerHandler : MonoBehaviour
 {
