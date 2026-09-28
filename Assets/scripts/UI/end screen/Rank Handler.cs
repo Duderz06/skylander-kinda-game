@@ -33,9 +33,12 @@ public class RankHandler : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Awake()
     {
-        TT = FindAnyObjectByType<ThingyTracker>();
+        TT = ThingyTracker.Instance;
+
 
         ResultsScreen.SetActive (false);
+
+        TT.StartTrackingStuff();
     }
 
     // Update is called once per frame

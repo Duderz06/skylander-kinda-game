@@ -5,7 +5,22 @@ using UnityEngine;
 public class ThingyTracker : MonoBehaviour
 {
 
-    private RankHandler RH;
+
+    public static ThingyTracker Instance { get; private set; }
+
+    public virtual void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
+        DontDestroyOnLoad(gameObject);
+    }
+
 
 
     public int EnemiesInLevel = 0;
@@ -13,32 +28,29 @@ public class ThingyTracker : MonoBehaviour
 
     public float TimeTaken = 0f;
 
-    public float DamageTaken=0f;
+    public float DamageTaken = 0f;
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+
+
+    public void StartTrackingStuff()
     {
-        RH = FindAnyObjectByType<RankHandler>();
+
+
+        EnemiesInLevel = 0;
+        EnemiesKilled = 0;
+        TimeTaken = 0;
+        DamageTaken = 0;
 
         StartCoroutine(Timer());
-
-
         GameObject[] enemies;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         EnemiesInLevel = enemies.Length;
-
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
 
 
-
-    }
 
     public IEnumerator Timer() {
 

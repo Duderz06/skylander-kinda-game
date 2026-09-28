@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.XR;
 
 public class HandBossAI : MonoBehaviour
 {
@@ -55,6 +56,20 @@ public class HandBossAI : MonoBehaviour
     public float SlamDistanceFromGround = 1f;
 
     public Vector3 SlamHandRotation;
+
+
+
+    [Header("Shockwave stuff")]
+    public GameObject Shockwave;
+    public Transform LeftHandShockSpot;
+    public Transform RightHandShockSpot;
+    public float ShockwaveSlamSpeed = 15f;
+    public float ShockwaveHeightForHands = 5f;
+
+    public float ShockwaveHandsStuckTime = 5f;
+    public Vector3 ShockwaveHandRotation;
+    public float ShockwavePrepTime = 2f;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -319,6 +334,114 @@ public class HandBossAI : MonoBehaviour
     }
 
 
+
+    public IEnumerator ShockwaveAttack()
+    {
+
+        float timer = 0f;
+
+        Vector3 RHandSpot = Player.transform.position;
+        Vector3 LHandSpot = Player.transform.position;
+
+        while (timer < ShockwavePrepTime)
+        {
+            timer += Time.deltaTime;
+
+          
+
+            RHandSpot = RightHandShockSpot.position;
+            RHandSpot.y += ShockwaveHeightForHands;
+            
+
+            
+            LHandSpot = LeftHandShockSpot.position;
+            LHandSpot.y += ShockwaveHeightForHands;
+
+
+            if (RightHand != null) {
+
+                RightHand.transform.position = Vector3.MoveTowards(RightHand.transform.position, RHandSpot, ReturnToSpotSpeed * Time.deltaTime);
+                RightHand.transform.rotation = Quaternion.Lerp(RightHand.transform.rotation, Quaternion.Euler(ShockwaveHandRotation), HandRotateSpeed * Time.deltaTime);
+
+
+
+            }
+
+
+            if(LeftHand != null) {
+
+                LeftHand.transform.position = Vector3.MoveTowards(LeftHand.transform.position, LHandSpot, ReturnToSpotSpeed * Time.deltaTime);
+                LeftHand.transform.rotation = Quaternion.Lerp(LeftHand.transform.rotation, Quaternion.Euler(ShockwaveHandRotation), HandRotateSpeed * Time.deltaTime);
+
+
+
+            }
+
+            bool slammed = false;
+
+
+            while (slammed)
+            {
+
+                if (RightHand != null)
+                {
+                    RightHand.transform.position = Vector3.MoveTowards(RightHand.transform.position, RHandSpot, ClapSpeed * Time.deltaTime);
+
+                }
+
+                if (LeftHand != null)
+                {
+                    LeftHand.transform.position = Vector3.MoveTowards(LeftHand.transform.position, LHandSpot, ClapSpeed * Time.deltaTime);
+                }
+
+                //figure out how to check if slammed if only 1 hand is alive and it still works with both
+                yield return null;
+
+            }
+
+
+
+
+
+
+            yield return null;
+        }
+
+
+        //make shockwave that do thing
+        // make it only on alive hands
+
+
+
+        yield return new WaitForSeconds(ShockwaveHandsStuckTime);
+
+
+
+
+
+        //figure out how to change this part to make it work if only 1 hand is alive
+        while (RightHand.transform.position != RightHandBaseSpot.position || LeftHand.transform.position != LeftHandBaseSpot.position)
+        {
+            if (RightHand != null)
+            {
+                RightHand.transform.position = Vector3.MoveTowards(RightHand.transform.position, RightHandBaseSpot.position, ReturnToSpotSpeed * Time.deltaTime);
+                RightHand.transform.rotation = Quaternion.Lerp(RightHand.transform.rotation, Quaternion.Euler(BaseHandRotation), HandRotateSpeed * Time.deltaTime);
+            }
+
+
+            if (LeftHand != null)
+            {
+                LeftHand.transform.position = Vector3.MoveTowards(LeftHand.transform.position, LeftHandBaseSpot.position, ReturnToSpotSpeed * Time.deltaTime);
+                LeftHand.transform.rotation = Quaternion.Lerp(LeftHand.transform.rotation, Quaternion.Euler(BaseHandRotation), HandRotateSpeed * Time.deltaTime);
+            }
+
+            yield return null;
+
+        }
+
+
+
+    }
 
 
 }
