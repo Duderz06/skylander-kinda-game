@@ -7791,6 +7791,7 @@ MonoBehaviour:
   XpForceMax: 7
   MaxXpAngle: 45
   Died: 0
+  CountToCounter: 0
 --- !u!65 &744131530
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8051,6 +8052,7 @@ MonoBehaviour:
   XpForceMax: 7
   MaxXpAngle: 45
   Died: 0
+  CountToCounter: 1
 --- !u!65 &768357273
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13738,6 +13740,7 @@ MonoBehaviour:
   XpForceMax: 7
   MaxXpAngle: 45
   Died: 0
+  CountToCounter: 1
 --- !u!1001 &1261276354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18801,6 +18804,10 @@ PrefabInstance:
     - target: {fileID: 7367069443073906977, guid: c0675ccb68348b04d8c5bcd8124c777a, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185883214440851733, guid: c0675ccb68348b04d8c5bcd8124c777a, type: 3}
+      propertyPath: SceneName
+      value: Level 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24448,8 +24455,8 @@ SceneRoots:
   - {fileID: 1025452999}
   - {fileID: 663084741}
   - {fileID: 190831162}
-  - {fileID: 1256301874}
   - {fileID: 744131533}
+  - {fileID: 1256301874}
   - {fileID: 1967152265}
   - {fileID: 1366918915}
   - {fileID: 1946037960}

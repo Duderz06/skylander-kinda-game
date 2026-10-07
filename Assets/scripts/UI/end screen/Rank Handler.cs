@@ -11,6 +11,7 @@ public class RankHandler : MonoBehaviour
     public GameObject ResultsScreen;
 
     private ThingyTracker TT;
+    private UpgradeHandler UH;
 
     public RawImage RankImage;
     public List<Texture2D> RankImages = new List<Texture2D> ();
@@ -37,7 +38,7 @@ public class RankHandler : MonoBehaviour
     {
 
         TT = ThingyTracker.Instance;
-
+        
 
         TT.StartTrackingStuff();
 
@@ -154,8 +155,34 @@ public class RankHandler : MonoBehaviour
     {
         
         CalculateScore();
+        UH = FindAnyObjectByType<UpgradeHandler>();
 
-    }
+        TT.XPGained = UH.XPGained;
+        TT.Level = UH.Level;
+
+        TT.MainMove = UH.MainMove;
+        TT.SecondaryMove = UH.SecondaryMove;
+        TT.Passive = UH.Passive;
+
+        TT.MainUpgrade1 = UH.MainUpgrade1;
+        TT.MainUpgrade2 = UH.MainUpgrade2;
+        TT.MainUpgrade3 = UH.MainUpgrade3;
+        TT.MainUpgrade4 = UH.MainUpgrade4;
+
+        TT.SecondaryUpgrade1 = UH.SecondaryUpgrade1;
+        TT.SecondaryUpgrade2 = UH.SecondaryUpgrade2;
+        TT.SecondaryUpgrade3 = UH.SecondaryUpgrade3;
+        TT.SecondaryUpgrade4 = UH.SecondaryUpgrade4;
+
+        TT.FinalUpgrade1 = UH.FinalUpgrade1;
+        TT.FinalUpgrade2 = UH.FinalUpgrade2;
+        TT.UltimateUpgrade = UH.UltimateUpgrade;
+
+
+        TT.ChoseTopPath1 = UH.ChoseTopPath1;
+        TT.ChoseTopPath2 = UH.ChoseTopPath2;
+
+}
 
 
 

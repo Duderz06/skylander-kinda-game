@@ -189,7 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WizardEnemy
   Hp: 25
   Damage: 10
-  ActivationRange: 15
+  ActivationRange: 10
   XPGiven: 15
   Player: {fileID: 0}
   Activated: 0
@@ -206,7 +206,11 @@ MonoBehaviour:
   - 1
   - 5
   - 10
+  XpForceMin: 3
+  XpForceMax: 7
+  MaxXpAngle: 45
   Died: 0
+  CountToCounter: 1
   AttackCooldown: 1.5
   CanAttack: 1
   CanMove: 1
