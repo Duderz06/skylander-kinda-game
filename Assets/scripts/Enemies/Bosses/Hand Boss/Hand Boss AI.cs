@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
-using UnityEngine.XR;
+
 
 public class HandBossAI : MonoBehaviour
 {
@@ -70,6 +69,7 @@ public class HandBossAI : MonoBehaviour
     public Vector3 ShockwaveHandRotation;
     public float ShockwavePrepTime = 2f;
 
+    private List<GameObject> Shockwaves = new List<GameObject>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -100,66 +100,93 @@ public class HandBossAI : MonoBehaviour
 
             if (HandsAlive == 2) {
 
+                WhichAttack = Random.Range(0, 3);
+
+            }
+
+            else if (HandsAlive == 1) {
+
                 WhichAttack = Random.Range(0, 2);
 
             }
 
-            if (HandsAlive == 1) {
 
-                WhichAttack = Random.Range(0, 1);
 
-            }
-
-            if (WhichAttack == 0)
+            if (HandsAlive > 0)
             {
 
-                GameObject HandToSlam;
-
-                if (Hands.Count > 1)
+                //1 hand attacks
+                if (WhichAttack == 0)
                 {
-                    int WhichHand = Random.Range(0, 2);
 
-                    if (WhichHand == 0)
+                    GameObject HandToSlam;
+
+                    if (Hands.Count > 1)
                     {
+                        int WhichHand = Random.Range(0, 2);
 
-                        HandToSlam = RightHand;
+                        if (WhichHand == 0)
+                        {
+
+                            HandToSlam = RightHand;
+
+                        }
+
+                        else
+                        {
+
+                            HandToSlam = LeftHand;
+
+                        }
 
                     }
 
                     else
                     {
 
-                        HandToSlam = LeftHand;
+                        HandToSlam = Hands[0];
+
 
                     }
 
+
+                    StartCoroutine(SlamAttack(HandToSlam));
+
+
                 }
 
-                else
+
+
+
+                else if (WhichAttack == 1)
                 {
 
-                    HandToSlam = Hands[0];
-                    Debug.Log("d");
-
+                    StartCoroutine(ShockwaveAttack());
 
                 }
 
 
-                StartCoroutine(SlamAttack(HandToSlam));
 
+                // 2 hand attacks
+                else if (WhichAttack == 2)
+                {
+
+
+                    StartCoroutine(ClapAttack());
+
+
+
+                }
 
             }
 
+            else {
 
-            else if (WhichAttack == 1) {
-
-
-                StartCoroutine(ClapAttack());
-
-
-
+                Debug.Log("oh no my hands are dead and stuff ok phase 2 go but it does not exist i guess");
+                //head attack stuff for phase 2 and things
+            
+            
             }
-
 
 
         }
@@ -188,15 +215,20 @@ public class HandBossAI : MonoBehaviour
 
             RHandSpot.x -= ClapHoverAroundPlayerDistance;
             LHandSpot.x += ClapHoverAroundPlayerDistance;
-            
 
 
-            RightHand.transform.position = Vector3.Lerp(RightHand.transform.position, RHandSpot, ClapHoverHandSpeed * Time.deltaTime);
-            LeftHand.transform.position = Vector3.Lerp(LeftHand.transform.position, LHandSpot, ClapHoverHandSpeed * Time.deltaTime);
+            if (RightHand.activeInHierarchy)
+            {
+                RightHand.transform.position = Vector3.Lerp(RightHand.transform.position, RHandSpot, ClapHoverHandSpeed * Time.deltaTime);
+                RightHand.transform.rotation = Quaternion.Lerp(RightHand.transform.rotation, Quaternion.Euler(RHandClapRotation), HandRotateSpeed * Time.deltaTime);
+            }
 
-            RightHand.transform.rotation = Quaternion.Lerp(RightHand.transform.rotation, Quaternion.Euler(RHandClapRotation), HandRotateSpeed * Time.deltaTime);
-            LeftHand.transform.rotation = Quaternion.Lerp(LeftHand.transform.rotation, Quaternion.Euler(LHandClapRotation), HandRotateSpeed * Time.deltaTime);
 
+            if (LeftHand.activeInHierarchy)
+            {
+                LeftHand.transform.position = Vector3.Lerp(LeftHand.transform.position, LHandSpot, ClapHoverHandSpeed * Time.deltaTime);
+                LeftHand.transform.rotation = Quaternion.Lerp(LeftHand.transform.rotation, Quaternion.Euler(LHandClapRotation), HandRotateSpeed * Time.deltaTime);
+            }
 
 
             MidPoint = Player.transform.position;
@@ -204,9 +236,18 @@ public class HandBossAI : MonoBehaviour
             yield return null;
         }
 
+        if (RightHand != null)
+        {
+            RightHand.transform.rotation = Quaternion.Euler(RHandClapRotation);
 
-        RightHand.transform.rotation = Quaternion.Euler(RHandClapRotation);
-        LeftHand.transform.rotation = Quaternion.Euler(LHandClapRotation);
+        }
+
+        if (LeftHand != null)
+        {
+            LeftHand.transform.rotation = Quaternion.Euler(LHandClapRotation);
+        }
+
+
 
         yield return new WaitForSeconds(ClapWaitTime);
 
@@ -219,8 +260,7 @@ public class HandBossAI : MonoBehaviour
         LHandClappedSpot.x += ClappedDistance;
 
 
-
-        while (RightHand.transform.position != RHandClappedSpot && LeftHand.transform.position != LHandClappedSpot) {
+        while (RightHand.transform.position != RHandClappedSpot || LeftHand.transform.position != LHandClappedSpot) {
 
             RightHand.transform.position = Vector3.MoveTowards(RightHand.transform.position, RHandClappedSpot, ClapSpeed * Time.deltaTime);
             LeftHand.transform.position = Vector3.MoveTowards(LeftHand.transform.position, LHandClappedSpot, ClapSpeed * Time.deltaTime);
@@ -235,7 +275,6 @@ public class HandBossAI : MonoBehaviour
         yield return new WaitForSeconds(ClapStuckTime);
 
 
-        
 
 
         while (RightHand.transform.position != RightHandBaseSpot.position || LeftHand.transform.position != LeftHandBaseSpot.position)
@@ -252,8 +291,19 @@ public class HandBossAI : MonoBehaviour
 
         }
 
-        RightHand.transform.rotation = Quaternion.Euler(BaseHandRotation);
-        LeftHand.transform.rotation = Quaternion.Euler(BaseHandRotation);
+
+
+        if (RightHand != null)
+        {
+            RightHand.transform.rotation = Quaternion.Euler(BaseHandRotation);
+
+        }
+
+        if (LeftHand != null)
+        {
+            LeftHand.transform.rotation = Quaternion.Euler(BaseHandRotation);
+        }
+
 
         Attacking = false;
     }
@@ -310,7 +360,6 @@ public class HandBossAI : MonoBehaviour
 
 
 
-
         while (RightHand.transform.position != RightHandBaseSpot.position || LeftHand.transform.position != LeftHandBaseSpot.position)
         {
 
@@ -327,8 +376,16 @@ public class HandBossAI : MonoBehaviour
         }
 
 
-        RightHand.transform.rotation = Quaternion.Euler(BaseHandRotation);
-        LeftHand.transform.rotation = Quaternion.Euler(BaseHandRotation);
+        if (RightHand != null)
+        {
+            RightHand.transform.rotation = Quaternion.Euler(BaseHandRotation);
+
+        }
+
+        if (LeftHand != null)
+        {
+            LeftHand.transform.rotation = Quaternion.Euler(BaseHandRotation);
+        }
 
         Attacking = false;
     }
@@ -377,40 +434,60 @@ public class HandBossAI : MonoBehaviour
 
             }
 
-            bool slammed = false;
+            
 
 
-            while (slammed)
-            {
-
-                if (RightHand != null)
-                {
-                    RightHand.transform.position = Vector3.MoveTowards(RightHand.transform.position, RHandSpot, ClapSpeed * Time.deltaTime);
-
-                }
-
-                if (LeftHand != null)
-                {
-                    LeftHand.transform.position = Vector3.MoveTowards(LeftHand.transform.position, LHandSpot, ClapSpeed * Time.deltaTime);
-                }
-
-                //figure out how to check if slammed if only 1 hand is alive and it still works with both
-                yield return null;
-
-            }
-
-
-
-
+           
 
 
             yield return null;
         }
 
 
-        //make shockwave that do thing
-        // make it only on alive hands
+        bool slammed = false;
 
+
+        while (!slammed)
+        {
+
+            
+            RightHand.transform.position = Vector3.MoveTowards(RightHand.transform.position, RightHandShockSpot.position, ClapSpeed * Time.deltaTime);
+
+            LeftHand.transform.position = Vector3.MoveTowards(LeftHand.transform.position, LeftHandShockSpot.position, ClapSpeed * Time.deltaTime);
+            
+
+            //figure out how to check if slammed if only 1 hand is alive and it still works with both
+            //dead hands are just set to be deactivated
+            slammed = true;
+
+            yield return null;
+
+        }
+
+
+
+        if (RightHand.activeInHierarchy)
+        {
+            RightHand.transform.position = RightHandShockSpot.position;
+
+            Vector3 RShockSpot = RightHandShockSpot.position;
+            RShockSpot.y -= 1;
+
+            Shockwaves.Add(Instantiate(Shockwave, RShockSpot, Quaternion.identity));
+
+
+        }
+        if (LeftHand.activeInHierarchy)
+        {
+            LeftHand.transform.position = LeftHandShockSpot.position;
+
+            Vector3 LShockSpot = LeftHandShockSpot.position;
+            LShockSpot.y -= 1;
+
+            Shockwaves.Add(Instantiate(Shockwave, LShockSpot, Quaternion.identity));
+
+
+        }
 
 
         yield return new WaitForSeconds(ShockwaveHandsStuckTime);
@@ -418,8 +495,6 @@ public class HandBossAI : MonoBehaviour
 
 
 
-
-        //figure out how to change this part to make it work if only 1 hand is alive
         while (RightHand.transform.position != RightHandBaseSpot.position || LeftHand.transform.position != LeftHandBaseSpot.position)
         {
             if (RightHand != null)
@@ -439,7 +514,19 @@ public class HandBossAI : MonoBehaviour
 
         }
 
+        if (RightHand != null)
+        {
+            RightHand.transform.rotation = Quaternion.Euler(BaseHandRotation);
 
+        }
+
+        if (LeftHand != null)
+        {
+            LeftHand.transform.rotation = Quaternion.Euler(BaseHandRotation);
+        }
+
+
+        Attacking = false;
 
     }
 

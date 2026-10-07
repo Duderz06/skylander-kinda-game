@@ -1,5 +1,7 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,13 +35,17 @@ public class RankHandler : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Awake()
     {
+
         TT = ThingyTracker.Instance;
 
 
-        ResultsScreen.SetActive (false);
-
         TT.StartTrackingStuff();
+
+        ResultsScreen.SetActive(false);
     }
+
+    
+
 
     // Update is called once per frame
     void Update()

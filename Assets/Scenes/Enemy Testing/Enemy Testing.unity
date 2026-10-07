@@ -594,9 +594,11 @@ GameObject:
   - component: {fileID: 201554877}
   - component: {fileID: 201554876}
   - component: {fileID: 201554875}
+  - component: {fileID: 201554878}
+  - component: {fileID: 201554879}
   m_Layer: 0
   m_Name: L Hand
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -613,7 +615,8 @@ Transform:
   m_LocalPosition: {x: 7.5, y: -2, z: -5.5}
   m_LocalScale: {x: 4, y: 3, z: 2}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1757466748}
   m_Father: {fileID: 810813656}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &201554875
@@ -694,6 +697,82 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201554873}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &201554878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201554873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00fc0f51be679f40ab838632c608d02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HandBossHandHP
+  Hp: 50
+  Damage: 0
+  ActivationRange: 0
+  XPGiven: 0
+  Player: {fileID: 0}
+  Activated: 0
+  StayDistance: 0
+  NMA: {fileID: 0}
+  UH: {fileID: 0}
+  DamageNumber: {fileID: 73231673538876452, guid: b9f5d761880ef65499f5dfa1eaaa1668, type: 3}
+  DamageNumberSpot: {fileID: 1757466748}
+  XPOrbs: []
+  XPOrbAmount: []
+  XpForceMin: 0
+  XpForceMax: 0
+  MaxXpAngle: 0
+  Died: 0
+  CountToCounter: 1
+--- !u!114 &201554879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201554873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e41d63dc4f961b4f89e4d041f340e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamagePlayerHitbox
+  Damage: 15
+  DestroyOnTouch: 0
+  LifeTime: 1e+9
+--- !u!1 &208084655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 208084656}
+  m_Layer: 0
+  m_Name: R Hand Shock Spot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &208084656
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208084655}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.5, y: -3, z: -8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1273574750}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &239837876
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,9 +785,11 @@ GameObject:
   - component: {fileID: 239837880}
   - component: {fileID: 239837879}
   - component: {fileID: 239837878}
+  - component: {fileID: 239837881}
+  - component: {fileID: 239837882}
   m_Layer: 0
   m_Name: R Hand
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -725,7 +806,8 @@ Transform:
   m_LocalPosition: {x: -7.5, y: -2, z: -5.5}
   m_LocalScale: {x: 4, y: 3, z: 2}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1867212323}
   m_Father: {fileID: 810813656}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &239837878
@@ -806,6 +888,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 239837876}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &239837881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239837876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00fc0f51be679f40ab838632c608d02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HandBossHandHP
+  Hp: 50
+  Damage: 0
+  ActivationRange: 0
+  XPGiven: 0
+  Player: {fileID: 0}
+  Activated: 0
+  StayDistance: 0
+  NMA: {fileID: 0}
+  UH: {fileID: 0}
+  DamageNumber: {fileID: 73231673538876452, guid: b9f5d761880ef65499f5dfa1eaaa1668, type: 3}
+  DamageNumberSpot: {fileID: 1867212323}
+  XPOrbs: []
+  XPOrbAmount: []
+  XpForceMin: 0
+  XpForceMax: 0
+  MaxXpAngle: 0
+  Died: 0
+  CountToCounter: 1
+--- !u!114 &239837882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239837876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e41d63dc4f961b4f89e4d041f340e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamagePlayerHitbox
+  Damage: 15
+  DestroyOnTouch: 0
+  LifeTime: 1e+9
 --- !u!1001 &248471912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1027,6 +1154,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254998658}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &258188799
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 258188800}
+  m_Layer: 0
+  m_Name: L Hand Shock Spot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &258188800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258188799}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.5, y: -3, z: -8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1273574750}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &281597487
 GameObject:
   m_ObjectHideFlags: 0
@@ -2848,6 +3006,14 @@ MonoBehaviour:
   SlamHoverAbovePlayerDistance: 5
   SlamDistanceFromGround: 0
   SlamHandRotation: {x: -90, y: 0, z: 0}
+  Shockwave: {fileID: 708563675870976092, guid: 34a9d5866a0ef24459e23c1cd94a9bdd, type: 3}
+  LeftHandShockSpot: {fileID: 258188800}
+  RightHandShockSpot: {fileID: 208084656}
+  ShockwaveSlamSpeed: 15
+  ShockwaveHeightForHands: 5
+  ShockwaveHandsStuckTime: 5
+  ShockwaveHandRotation: {x: 0, y: 0, z: 0}
+  ShockwavePrepTime: 2
 --- !u!1 &819520943
 GameObject:
   m_ObjectHideFlags: 0
@@ -3216,6 +3382,54 @@ Transform:
   - {fileID: 1296393969}
   - {fileID: 1342055649}
   - {fileID: 2021005808}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1077631622
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1077631624}
+  - component: {fileID: 1077631623}
+  m_Layer: 0
+  m_Name: thingy tracker thing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1077631623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077631622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 501a192ed28ed0240a9ab604d709d306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ThingyTracker
+  EnemiesInLevel: 0
+  EnemiesKilled: 0
+  TimeTaken: 0
+  DamageTaken: 0
+--- !u!4 &1077631624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077631622}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.84181, y: -0.5, z: -0.29393}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1090856485 stripped
@@ -3935,7 +4149,7 @@ Transform:
   m_GameObject: {fileID: 1243104508}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.5, y: -2, z: -5.5}
+  m_LocalPosition: {x: 7.5, y: -0.5, z: -5.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3972,7 +4186,9 @@ Transform:
   m_Children:
   - {fileID: 831313241}
   - {fileID: 1627735862}
+  - {fileID: 208084656}
   - {fileID: 1243104509}
+  - {fileID: 258188800}
   m_Father: {fileID: 810813656}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1280835573
@@ -5520,7 +5736,7 @@ Transform:
   m_GameObject: {fileID: 1627735861}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.5, y: -2, z: -5.5}
+  m_LocalPosition: {x: -7.5, y: -0.5, z: -5.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5807,6 +6023,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1741333220}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1757466747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1757466748}
+  m_Layer: 0
+  m_Name: dam num spot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1757466748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757466747}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201554874}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1773284757
 GameObject:
   m_ObjectHideFlags: 0
@@ -6612,6 +6859,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849313650}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1867212322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1867212323}
+  m_Layer: 0
+  m_Name: dam num spot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1867212323
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867212322}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 239837877}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1898981687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7353,6 +7631,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1077631624}
   - {fileID: 248471912}
   - {fileID: 58286808}
   - {fileID: 1280835575}

@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 public class EnemyParent : MonoBehaviour
 {
-    private ThingyTracker TT;
+    protected ThingyTracker TT;
 
     [Header("parent stuff")]
 
@@ -46,7 +46,7 @@ public class EnemyParent : MonoBehaviour
         
         NMA = GetComponent<NavMeshAgent>();
 
-        TT = FindAnyObjectByType<ThingyTracker>();
+        TT = ThingyTracker.Instance;
 
     }
 
@@ -138,7 +138,7 @@ public class EnemyParent : MonoBehaviour
     }
 
 
-    public IEnumerator Death()
+    public virtual IEnumerator Death()
     {
 
         float XpSpawned = 0f;
