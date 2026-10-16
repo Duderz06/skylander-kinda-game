@@ -76,7 +76,6 @@ public class HandBossAI : MonoBehaviour
     {
         Player = GameObject.FindWithTag("Player").transform;
 
-        //StartCoroutine(ClapAttack());
 
     }
 
@@ -183,6 +182,7 @@ public class HandBossAI : MonoBehaviour
             else {
 
                 Debug.Log("oh no my hands are dead and stuff ok phase 2 go but it does not exist i guess");
+                Destroy(gameObject);
                 //head attack stuff for phase 2 and things
             
             
@@ -456,8 +456,7 @@ public class HandBossAI : MonoBehaviour
             LeftHand.transform.position = Vector3.MoveTowards(LeftHand.transform.position, LeftHandShockSpot.position, ClapSpeed * Time.deltaTime);
             
 
-            //figure out how to check if slammed if only 1 hand is alive and it still works with both
-            //dead hands are just set to be deactivated
+            
             slammed = true;
 
             yield return null;
