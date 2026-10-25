@@ -4106,7 +4106,7 @@ Transform:
   m_GameObject: {fileID: 828085294}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1889.2361, y: -0.00001, z: 935.4187}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4128,6 +4128,24 @@ MonoBehaviour:
   EnemiesKilled: 0
   TimeTaken: 0
   DamageTaken: 0
+  XPGained: 0
+  Level: 0
+  MainMove: 1
+  SecondaryMove: 0
+  Passive: 0
+  MainUpgrade1: 0
+  MainUpgrade2: 0
+  MainUpgrade3: 0
+  MainUpgrade4: 0
+  SecondaryUpgrade1: 0
+  SecondaryUpgrade2: 0
+  SecondaryUpgrade3: 0
+  SecondaryUpgrade4: 0
+  FinalUpgrade1: 0
+  FinalUpgrade2: 0
+  UltimateUpgrade: 0
+  ChoseTopPath1: 0
+  ChoseTopPath2: 0
 --- !u!1 &829186829
 GameObject:
   m_ObjectHideFlags: 0
@@ -12117,6 +12135,7 @@ SceneRoots:
   - {fileID: 324708644}
   - {fileID: 1057028527}
   - {fileID: 220384710}
+  - {fileID: 828085295}
   - {fileID: 7391964502968781414}
   - {fileID: 1713622158}
   - {fileID: 74906891}
@@ -12125,4 +12144,3 @@ SceneRoots:
   - {fileID: 981032824}
   - {fileID: 1527565466}
   - {fileID: 909804078}
-  - {fileID: 828085295}
