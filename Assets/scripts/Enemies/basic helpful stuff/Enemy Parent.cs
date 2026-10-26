@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 public class EnemyParent : MonoBehaviour
 {
-    protected ThingyTracker TT;
+    protected PlayerStatsTracker TT;
 
     [Header("parent stuff")]
 
@@ -46,7 +46,7 @@ public class EnemyParent : MonoBehaviour
         
         NMA = GetComponent<NavMeshAgent>();
 
-        TT = ThingyTracker.Instance;
+        TT = PlayerStatsTracker.Instance;
 
     }
 

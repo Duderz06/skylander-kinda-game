@@ -37,7 +37,7 @@ public class UpgradeHandler : MonoBehaviour
 
     private Image XPBar;
 
-    private ThingyTracker TT;
+    private PlayerStatsTracker TT;
 
     private void Awake()
     {
@@ -46,7 +46,7 @@ public class UpgradeHandler : MonoBehaviour
         UpdateXpBar();
 
 
-        TT = ThingyTracker.Instance;
+        TT = PlayerStatsTracker.Instance;
 
 
         TT.UpdatePlayerUpgrades();

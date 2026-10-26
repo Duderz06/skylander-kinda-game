@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThingyTracker : MonoBehaviour
+public class PlayerStatsTracker : MonoBehaviour
 {
 
 
-    public static ThingyTracker Instance { get; private set; }
+    public static PlayerStatsTracker Instance { get; private set; }
 
 
     private UpgradeHandler UH;

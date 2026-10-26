@@ -10,7 +10,7 @@ public class RankHandler : MonoBehaviour
 
     public GameObject ResultsScreen;
 
-    private ThingyTracker TT;
+    private PlayerStatsTracker TT;
     private UpgradeHandler UH;
 
     public RawImage RankImage;
@@ -37,7 +37,7 @@ public class RankHandler : MonoBehaviour
     public void Awake()
     {
 
-        TT = ThingyTracker.Instance;
+        TT = PlayerStatsTracker.Instance;
         
 
         TT.StartTrackingStuff();

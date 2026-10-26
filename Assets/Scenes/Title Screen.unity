@@ -4091,7 +4091,7 @@ GameObject:
   - component: {fileID: 828085295}
   - component: {fileID: 828085296}
   m_Layer: 0
-  m_Name: thingy tracker
+  m_Name: Player Stats Tracker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7369,6 +7369,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AchiNameDesc
   Name: Saviour
   Description: beat the game
+--- !u!1 &1338929119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1338929121}
+  - component: {fileID: 1338929120}
+  m_Layer: 0
+  m_Name: plugin tester
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1338929120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338929119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de78d7d31beafdc47943fe0bcf892a47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PluginExample
+  ID: 10
+--- !u!4 &1338929121
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338929119}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.71329, y: -0, z: -0.90269}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1346183065
 GameObject:
   m_ObjectHideFlags: 0
@@ -12135,7 +12180,6 @@ SceneRoots:
   - {fileID: 324708644}
   - {fileID: 1057028527}
   - {fileID: 220384710}
-  - {fileID: 828085295}
   - {fileID: 7391964502968781414}
   - {fileID: 1713622158}
   - {fileID: 74906891}
@@ -12144,3 +12188,5 @@ SceneRoots:
   - {fileID: 981032824}
   - {fileID: 1527565466}
   - {fileID: 909804078}
+  - {fileID: 828085295}
+  - {fileID: 1338929121}

@@ -16,7 +16,7 @@ public class PlayerHealthHandler : MonoBehaviour
 
     public GameObject DamageNumber;
     public Transform DamageNumberSpot;
-    public ThingyTracker TT;
+    public PlayerStatsTracker TT;
 
     private Image HPBar;
 
@@ -24,7 +24,7 @@ public class PlayerHealthHandler : MonoBehaviour
     public void Start()
     {
         Hp = MaxHp;
-        TT = FindAnyObjectByType<ThingyTracker>();
+        TT = FindAnyObjectByType<PlayerStatsTracker>();
 
         HPBar = GameObject.Find("hp bar").GetComponent<Image>();
         UpdateHpBar();
