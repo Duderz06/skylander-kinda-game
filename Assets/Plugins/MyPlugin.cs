@@ -1,61 +1,55 @@
+using System;
 using System.Runtime.InteropServices;
 
 [StructLayout(LayoutKind.Sequential)]
 
 
 
-
-public struct Vector2D { 
-
-
-
-    public float x;
-    public float y;
-
-}
-
-
 public class MyPlugin
 {
 
-    [DllImport("game_engines_pain")]
-    private static extern int GetID();
 
+    [DllImport("Game_engines_pain")]
+    private static extern IntPtr GetLevel0Name();
 
-    [DllImport("game_engines_pain")]
-    private static extern void SetId(int id);
-
-    [DllImport("game_engines_pain")]
-    private static extern Vector2D GetPosition();
-
-    [DllImport("game_engines_pain")]
-    private static extern void SetPosition(float x, float y);
+    public static string Level0Name =>
+        Marshal.PtrToStringAnsi(GetLevel0Name());
 
 
 
+    [DllImport("Game_engines_pain")]
+    private static extern IntPtr GetLevel1Name();
 
-    public static int ID
-    {
-
-
-        get { return GetID(); }
-
-       
-        set { SetId(value); }
-
-    }
-
-
-    public static Vector2D Position
-    {
-
-        get { return GetPosition(); }
-        set { SetPosition(value.x, value.y); }
-
-    }
+    public static string Level1Name =>
+        Marshal.PtrToStringAnsi(GetLevel1Name());
 
 
 
+    [DllImport("Game_engines_pain")]
+    private static extern IntPtr GetLevel2Name();
+
+    public static string Level2Name =>
+        Marshal.PtrToStringAnsi(GetLevel2Name());
+
+
+
+    [DllImport("Game_engines_pain")]
+    private static extern IntPtr GetLevel3Name();
+
+    public static string Level3Name =>
+        Marshal.PtrToStringAnsi(GetLevel3Name());
+
+
+
+
+
+
+
+    [DllImport("Game_engines_pain")]
+    private static extern IntPtr GetLevel4Name();
+
+    public static string Level4Name =>
+        Marshal.PtrToStringAnsi(GetLevel4Name());
 
 
 }

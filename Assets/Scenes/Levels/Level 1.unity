@@ -6295,6 +6295,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1454986293026357871, guid: c0675ccb68348b04d8c5bcd8124c777a, type: 3}
+      propertyPath: WhichLevel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1727022894419515059, guid: c0675ccb68348b04d8c5bcd8124c777a, type: 3}
       propertyPath: LossForDamage
       value: 5

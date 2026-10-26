@@ -3183,6 +3183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4751963502812536269}
   - component: {fileID: 1727022894419515059}
+  - component: {fileID: 1454986293026357871}
   m_Layer: 5
   m_Name: end of level screen
   m_TagString: Untagged
@@ -3253,6 +3254,20 @@ MonoBehaviour:
   MaxEnemiesText: {fileID: 3642537411230369557}
   TimeTakenText: {fileID: 6062831664651107504}
   DamageTakenText: {fileID: 8354277463204854700}
+--- !u!114 &1454986293026357871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4335069454719674964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff49f82421e824041bacbed65331e3b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EndScreenPlugin
+  WhichLevel: 0
+  LevelName: {fileID: 2346957559136330911}
 --- !u!1 &4479805390855831472
 GameObject:
   m_ObjectHideFlags: 0

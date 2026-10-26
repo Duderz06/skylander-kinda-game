@@ -7665,7 +7665,7 @@ MonoBehaviour:
   XpForceMax: 7
   MaxXpAngle: 45
   Died: 0
-  CountToCounter: 0
+  CountToCounter: 1
 --- !u!65 &744131530
 BoxCollider:
   m_ObjectHideFlags: 0

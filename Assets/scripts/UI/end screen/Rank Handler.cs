@@ -23,6 +23,7 @@ public class RankHandler : MonoBehaviour
     public float TimeLeftPoints = 100f;
     public float EnemyPointsMax = 10000f;
 
+    private EndScreenPlugin ESP;
 
 
     public float TimeForStageSeconds = 300f;
@@ -40,7 +41,10 @@ public class RankHandler : MonoBehaviour
         TT = PlayerStatsTracker.Instance;
         
 
+
         TT.StartTrackingStuff();
+
+        ESP = GetComponent<EndScreenPlugin>();
 
         ResultsScreen.SetActive(false);
     }
@@ -63,7 +67,9 @@ public class RankHandler : MonoBehaviour
 
         DamageTakenText.text = TT.DamageTaken+"";
 
-       
+        ESP.UpdateLevelName();
+
+
 
         int Minutes = 0;
         float Seconds = TT.TimeTaken;
